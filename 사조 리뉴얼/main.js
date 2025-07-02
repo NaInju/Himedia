@@ -16,44 +16,75 @@ sections.forEach(section => { //.array는 필요없음. 이미 위에 구문에�
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** header */ 
+/** HEADER */ 
 
-/** header hover 확장 */
 const header = document.getElementById('header');
-const gnb = document.querySelector('#gnb');
-const dep1 = gnb.querySelector('ul.dep1');
-let gnbTimer;
-
-function openGnb() {
-  clearTimeout(gnbTimer);
-  header.classList.add('expanded'); // 헤더 확장
-}
-
-function closeGnb() {
-  gnbTimer = setTimeout(() => {
-    header.classList.remove('expanded'); // 헤더 접기
-  }, 200);
-}
-
-dep1.addEventListener('mouseenter', openGnb);
-dep1.addEventListener('mouseleave', closeGnb);
-gnb.addEventListener('mouseenter', openGnb);
-gnb.addEventListener('mouseleave', closeGnb);
-
-/** lang-wrap 토글 */
+const desktopGnb = document.querySelector('#gnb');
+const mobileGnb = document.querySelector('.gnb-slide');
+const dep1 = desktopGnb.querySelector('.dep1');
 const langWrap = document.querySelector('.lang-wrap');
 const langToggle = document.querySelector('.lang-toggle');
+const gnbToggleBtn = document.querySelector('.gnb-toggle');
+const gnbOverlay = document.querySelector('.gnb-overlay');
+const gnbCloseBtn = document.querySelector('.gnb-close');
+let gnbTimer;
 
+/** ====== 데스크탑: GNB Hover 시 헤더 확장 ====== */
+function openGnb() {
+  if (window.innerWidth > 1000) {
+    clearTimeout(gnbTimer);
+    header.classList.add('expanded');
+  }
+}
+function closeGnb() {
+  if (window.innerWidth > 1000) {
+    gnbTimer = setTimeout(() => {
+      header.classList.remove('expanded');
+    }, 200);
+  }
+}
+
+desktopGnb.addEventListener('mouseenter', openGnb);
+desktopGnb.addEventListener('mouseleave', closeGnb);
+
+/** ====== LANG-WRAP 토글 ====== */
 langToggle.addEventListener('click', (e) => {
-  e.stopPropagation(); // 다른 클릭 이벤트 방지
+  e.stopPropagation();
   langWrap.classList.toggle('active');
 });
-
-// 문서 아무 곳이나 클릭 시 lang-list 닫기
 document.addEventListener('click', (e) => {
   if (!langWrap.contains(e.target)) {
     langWrap.classList.remove('active');
   }
+});
+
+/** ====== 모바일 GNB 슬라이드 ====== */
+gnbToggleBtn.addEventListener('click', () => {
+  mobileGnb.classList.add('active');
+  gnbOverlay.classList.add('active');
+  // ✅ dep1 > li 모두 open 클래스 추가 (dep2 보이게)
+  const mobileDep1Items = mobileGnb.querySelectorAll('.dep1 > li');
+  mobileDep1Items.forEach(li => li.classList.add('open'));
+});
+gnbCloseBtn.addEventListener('click', () => {
+  mobileGnb.classList.remove('active');
+  gnbOverlay.classList.remove('active');
+});
+gnbOverlay.addEventListener('click', () => {
+  mobileGnb.classList.remove('active');
+  gnbOverlay.classList.remove('active');
+});
+
+/** ====== 모바일 DEP2 토글 ====== */
+const mobileDep1Links = document.querySelectorAll('.gnb-slide .dep1 > li > a');
+mobileDep1Links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 1000) {
+      e.preventDefault();
+      const li = link.parentElement;
+      li.classList.toggle('open');
+    }
+  });
 });
 
 /** MAIN-VISUAL-WRAP */ 
