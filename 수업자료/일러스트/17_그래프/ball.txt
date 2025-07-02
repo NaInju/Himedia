@@ -1,4 +1,0 @@
-	basket	soccer	base
-Mar	9	3	4
-Apr	8	7	5
-May	4.5	10	8
