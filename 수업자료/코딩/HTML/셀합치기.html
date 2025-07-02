@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>셀합치기</title>
+    <style>
+        table {
+            border : 2px solid red;
+            width: 800px;
+        }
+        td {
+            border : 1px solid #999;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>표의 셀 합치기</h1>
+    <h2>가로셀 합치기</h2>
+    <h3>연습 1</h3>
+        <table>
+            <tr>
+                <td colspan="2">1</td>
+                <!-- <td>2</td> -->
+                <td colspan="2">3</td>
+                <!-- <td>4</td> -->
+            </tr>
+            <tr>
+                <td>5</td>
+                <td  colspan="3">6</td>
+                <!-- <td>7</td> -->
+                <!-- <td>8</td> -->
+            </tr>
+            <tr>
+                <td colspan="4">9</td>
+                <!-- <td>10</td>
+                <td>11</td>
+                <td>12</td> -->
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+    <h2>세로셀 합치기</h2>
+    <table>
+        <tr>
+            <td rowspan="2">1</td>
+            <td rowspan="2">2</td>
+            <td>3</td>
+            <td rowspan="5">4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <!-- <td>6</td> -->
+            <!-- <td>7</td> -->
+            <td rowspan="3">8</td>
+            <!-- <td>9</td> -->
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <!-- <td>13</td> -->
+            <!-- <td>14</td> -->
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <!-- <td>18</td> -->
+            <!-- <td>19</td> -->
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <!-- <td>24</td> -->
+            <td>25</td>
+        </tr>
+    </table>
+    <h2>셀합치기 연습</h2>
+    <h3>연습3</h3>
+    <table>
+        <tr>
+            <td colspan="4">아이티월 게스트하우스 예약 안내</td>
+            <!-- <td></td>
+            <td></td>
+            <td></td> -->
+        </tr>
+        <tr>
+            <td>방 이름</td>
+            <td>대상</td>
+            <td>크기</td>
+            <td>가격</td>
+        </tr>
+        <tr>
+            <td>유채방</td>
+            <td>여성 도미토리</td>
+            <td rowspan="3">4인실</td>
+            <td rowspan="4">1인 20,000원</td>
+        </tr>
+        <tr>
+            <td rowspan="2">동백방</td>
+            <td>남성 도미토리</td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>가족 1팀</td>
+            <!-- <td></td>
+            <td></td> -->
+        </tr>
+        <tr>
+            <td colspan="2">천혜향방</td>
+            <!-- <td></td> -->
+            <td>2인실</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td colspan="4">바깥채 단독 : 전화문의 (010-777-5454)</td>
+        </tr>
+    </table>
+
+    <h3>연습4</h3>
+    <table>
+        <tr>
+            <td rowspan="2">단</td>
+            <td colspan="2">경도와 위도의 극점</td>
+            <td rowspan="2">연장거리(km)</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td>지명</td>
+            <td>극점</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td>동단</td>
+            <td>탑동동(왕방산)</td>
+            <td>동경 127 03 49</td>
+            <td rowspan="4">동서간 12.9km 남북간15.3km </td>
+        </tr>
+        <tr>
+            <td>서단</td>
+            <td>상패동(사천리)</td>
+            <td>동경 127 00 37</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td>남단</td>
+            <td>탑동동(장 림)</td>
+            <td>북위 37 50 34</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td>북단</td>
+            <td>하봉암동(옥녀봉)</td>
+            <td>북위 37 58 50</td>
+            <!-- <td></td> -->
+        </tr>
+    </table>
+
+</body>
+</html>

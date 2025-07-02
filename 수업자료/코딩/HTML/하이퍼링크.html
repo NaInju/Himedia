@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼링크</title>
+    <style>
+        body {
+            margin-bottom: 500px;
+        }
+        h1 {
+            display: block;
+            font-size: 2em;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            unicode-bidi: isolate;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+        }
+
+        a:link {
+            color: red;
+        }
+        a {
+            text-decoration: none;
+        }
+        user agent stylesheet
+        a:-webkit-any-link {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        .link_box {
+            padding: 30px 80px;
+            background: #FAA;
+            border-bottom: 1px solid #CCC;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+        .link_box a {
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        section {
+            padding-top: 120px;
+            height: 120vh;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        #sec1 {
+            background: gold;
+        }
+        #sec2 {
+            background: salmon;
+        }
+        #sec3 {
+            background: lightgreen;
+        }
+        #sec4 {
+            background: lightblue;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>a 태그</h1>
+    <ul>
+        <li>Anchor의 의미를 가짐</li>
+        <li>다른 페이지(사이트)나 같은 페이지의 특정 위치로 이동</li>
+        <li>
+            이동 경로를 나타내기 위한 필수 속성 필요 <br>
+            href : Hyper Reference의 의미를 가짐.
+        </li>
+        <li>
+            target 속성 : 경로로 이동할 브라우저 위치를 설정하는 속성<br>
+            <ul>
+                <li>_self : 생략과 동일, 현재 탭에서 이동한다.</li>
+                <li>_blank : 새 탭에서 이동</li>
+                <li>framename : 아이프레임 등의 프레임 이름을 작성</li>
+            </ul>
+        </li>
+    </ul>
+    <!-- <a>네이버로 이동</a>
+     <a>구글로 이동</a>
+     청와대로 이동 -->
+     <a href="http://www.naver.com"target="_self">네이버</a>
+     <a href="http://www.google.com"target="_blank">구글</a>
+     <a href="http://www.president.go.kr"target="_blank">청와대</a>
+     <a href="http://www.police.go.kr">경찰청</a>
+     <a href="http://www.pps.go.kr">조달청</a>
+
+     <div class="link_box">
+        <a href="#sec1">sec1</a>
+        <a href="#sec2">sec2</a>
+        <a href="#sec3">sec3</a>
+        <a href="#sec4">sec4</a>
+        <a href="" class="top">top</a>
+     </div>
+
+     <section id="sec1">section - 1</section>
+     <section id="sec2">section - 2</section>
+     <section id="sec3">section - 3</section>
+     <section id="sec4">section - 4</section>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-form</title>
+
+    <!-- <style>
+        input[name="balance"]
+    </style> -->
+</head>
+<body>
+    <h1>form 요소 다루기</h1>
+    <h2>input의 value 값 => click 이벤트</h2>
+    <form id ="f1">
+        <input type="text" id="f1-name" placeholder="이름"> <br>
+        <select id="f1-telecom">
+            <option value="SKT">SKT</option> <!--option은 value값이 넘어가는 것임 때문에 반드시 value값을 채워줘야함.-->
+            <option value="KT">KT</option>
+            <option value="LG U+">LG U+</option>
+        </select>
+        <input type="text" id="f1-tel" placeholder="전화번호">
+        <button>확인</button> <!-- 폼태그 안에 쓰면 자동으로 type = submit -->
+    </form>
+    <ul class="f1-list"></ul>
+
+    <h2>input의 value 값 => submit 이벤트</h2>
+    <form id ="f2">
+        <input type="text" id="f2-name" placeholder="이름"> <br>
+        <select id="f2-telecom">
+            <option value="SKT">SKT</option> <!--option은 value값이 넘어가는 것임 때문에 반드시 value값을 채워줘야함.-->
+            <option value="KT">KT</option>
+            <option value="LG U+">LG U+</option>
+        </select>
+        <input type="text" id="f2-tel" placeholder="전화번호">
+        <button>확인</button> <!-- 폼태그 안에 쓰면 자동으로 type = "submit" -->
+    </form>
+    <ul class="f2-list"></ul>
+
+
+    <h2>input의 name 값</h2>
+    <form id ="f3" name="f3">
+        <input type="text" id="f3-name" name="f3name" placeholder="이름"> <br>
+        <select id="f3-telecom" name="f3telecom">
+            <option value="SKT">SKT</option> <!--option은 value값이 넘어가는 것임 때문에 반드시 value값을 채워줘야함.-->
+            <option value="KT">KT</option>
+            <option value="LG U+">LG U+</option>
+        </select>
+        <input type="text" id="f3-tel" name="f3tel" placeholder="전화번호">
+        <button>확인</button> <!-- 폼태그 안에 쓰면 자동으로 type = "submit" -->
+    </form>
+    <ul class="f3-list"></ul>
+
+    <h2>폼 배열(HTML Collection)</h2>
+    <form id ="f4" name="f4">
+        <input type="text" id="f4-name" name="f4name" placeholder="이름" required> <br> <!--required-->
+        <select id="f4-telecom" name="f4telecom">
+            <option value="SKT">SKT</option> <!--option은 value값이 넘어가는 것임 때문에 반드시 value값을 채워줘야함.-->
+            <option value="KT">KT</option>
+            <option value="LG U+">LG U+</option>
+        </select>
+        <input type="number" id="f4-tel" name="f4tel" placeholder="전화번호" required>
+        <button>확인</button> <!-- 폼태그 안에 쓰면 자동으로 type = "submit" -->
+    </form>
+    <ul class="f4-list"></ul>
+
+    <h2>체크박스와 라디오</h2>
+    <form action="" name="f5" id="f5">
+        <fieldset> <!--form 내부에서 내용을 구분할 때-->
+            <legend>밸런스 게임</legend> <!--fieldset의 캡션(제목)-->
+            <label>
+                <input type="radio" name="balance" value="평생 먹고 싶은 것만 먹고 살기"> 
+                 평생 먹고 싶은 것만 먹고 살기
+            </label>
+            <label>
+                <input type="radio" name="balance" value="평생 자고 싶은 만큼만 자기"> 
+                 평생 자고 싶은 만큼만 자기
+            </label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>여행 가고 싶은 나라</legend>
+            <label>
+                <input type="checkbox" name="country" value="프랑스">프랑스
+            </label>
+            <label>
+                <input type="checkbox" name="country" value="일본">일본
+            </label>
+            <label>
+                <input type="checkbox" name="country" value="캐나다">캐나다
+            </label>
+            <label>
+                <input type="checkbox" name="country" value="이탈리아">이탈리아
+            </label>
+            <label>
+                <input type="checkbox" name="country" value="대만">대만
+            </label>
+        </fieldset>
+        <button type="submit">확인</button>
+    </form>
+    <div class="f5-list"></div>
+
+    <a href="balance">
+        
+    </a>
+
+    <h2>연습</h2>
+    <form action="" name="f6">
+        <label>이름 : <input type="text" name="username"></label> <br>
+        <label>나이 : <input type="number" name="userage"></label> <br>
+        <span>성별 : </span>
+        <label><input type="radio" name="gender" value="남">남</label>
+        <label><input type="radio" name="gender" value="여">여</label> <br>
+
+        <span>희망직종 : </span>
+        <label><input type="checkbox" name="job" value="프로덕트디자이너">프로덕트디자이너</label>
+        <label><input type="checkbox" name="job" value="웹디자이너">웹디자이너</label>
+        <label><input type="checkbox" name="job" value="웹퍼블리셔">웹퍼블리셔</label>
+        <label><input type="checkbox" name="job" value="프론트엔드 개발자">프론트엔드 개발자</label>
+        <label><input type="checkbox" name="job" value="백엔드 개발자">백엔드 개발자</label>
+
+        <span>희망 지역 : </span>
+        <select name="location" id="">
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="대구">대구</option>
+            <option value="세종">세종</option>
+            <option value="제주">제주</option>
+        </select>
+        <button type="submit">제출</button>
+    </form>
+    <div class="f6-txt"></div>
+
+    <!--Java Script-->
+    <script>
+        //f1
+        const f1Name = document.querySelector('#f1-name')
+        const f1Sel = document.querySelector('#f1-telecom')
+        const f1Tel = document.querySelector('#f1-tel')
+        const f1List = document.querySelector('.f1-list')
+        const fbtn = document.querySelector('button')
+        
+        let txtContent = null;
+
+        //버튼 클릭
+        fbtn.addEventListener('click', e => {
+            e.preventDefault(); // 기본 이벤트 동작 방지
+
+            txtContent = `이름: ${f1Name.value}, 전화번호: ${f1Tel.value} ${f1Sel.value} `
+            // input의 입력값 => value
+            f1List.innerHTML += `<li>${txtContent}</li>`;
+            
+            //f1Name.value = '';
+            //f1Name.focus();
+        })
+
+        //엔터키
+        f1Tel.addEventListener('keydown', e => {
+            if ( e.key === 'Enter') { //e.key => 이벤트 발생 키 정보 받아옴
+               // txtContent = `이름: ${f1Name.value}, 전화번호: ${f1Tel.value} ${f1Sel.value} `
+                f1List.innerHTML += `<li>${txtContent}</li>`;
+            }
+        })
+
+        //** f2
+        const f2Name = document.querySelector('#f2-name')
+        const f2Sel = document.querySelector('#f2-telecom')
+        const f2Tel = document.querySelector('#f2-tel')
+        const f2List = document.querySelector('.f2-list')
+        const f2Submit = document.querySelector('#f2')
+        
+        f2Submit.addEventListener('submit', e => {
+            e.preventDefault();
+            f2List.innerHTML += `<li>${f2Name.value}</li>`
+
+
+        })
+
+        //** f3
+        const f3Submit = document.querySelector('#f3')
+        const f3List = document.querySelector('.f3-list')
+        
+        //const f3Name = document.querySelector('#f3-name')
+        //const f3Sel = document.querySelector('#f3-telecom')
+        //const f3Tel = document.querySelector('#f3-tel')
+
+        f3Submit.addEventListener('submit', e => {
+            e.preventDefault();
+            let name, telecom, tel; //id 이용하기
+            name = document.f3.f3name.value;
+            telecom = document.f3.f3telecom.value;
+            tel = document.f3.f3tel.value;
+
+            f3List.innerHTML += `<li>
+                이름: ${name}
+                통신사: ${telecom}
+                전화번호: ${tel}
+            </li>`
+
+        })
+        
+
+        //** f4
+
+        console.log(document.forms); // 문서 전체의 foirm
+        console.log(document.forms['f4']); //폼 배열 => index 번호나 name 값
+
+        document.forms['f4'].addEventListener('submit', event => {
+            event.preventDefault();
+
+            document.querySelector('.f4-list').innerHTML 
+            += `<li>
+                이름: ${document.forms['f4'][0].value}
+                통신사: ${document.forms['f4']['f4telecom'].value}
+                전화번호: ${document.forms['f4']['f4tel'].value}
+            </li>`
+
+        })
+
+
+        //** f5
+        const f5 = document.forms['f5']
+        f5.addEventListener('submit', e => {
+            e.preventDefault(); //새로고침 방지
+
+            //라디오
+
+            //const f5bal = document.forms['f5']['balance']; // 요소가 여러개라 바로 접근이 불가
+            const f5bal = document.querySelector('input[name="balance"]:checked'); //css 선택자
+            //console.log(f5bal.value); //체크된 요소가 없으면 에러
+
+            //const f5bal = (document.querySelector('input[name="balance"]:checked')) ? document.querySelector('input[name = "balance"]:checked').value : '선택 안함';
+           
+            
+            //?.value || '선택안함';
+
+            const f5balChk = f5bal ? f5bal.value : '선택안함'
+
+            
+            //** 체크박스
+
+            const f5trip = document.querySelectorAll('input[name="country"]:checked') // input 요소배열
+
+            //input 요소의 value 값 배열은 별도 생성
+            const tripVal = [];
+            for(let val of f5trip) {
+                tripVal.push(val.value)
+            }
+            /*
+            //const tripVal = f5trip.map(el => el.value); 유사배열은 map 사용 안됨
+            const tripVal = [...f5trip].map(el => el.value);
+
+            ** f5trip => NodeList(요소) => 배열형태, 유사배열
+
+            ** 유사 배열을 배열 변환
+            1. 전개 연산자 => [...f5trip]
+            2. Array.from(f5trip)
+            */
+           
+            // 선택안함
+            const tripValChk = (tripVal.length > 0)? tripVal : '선택안함';
+
+            console.log(f5trip); //nodeList (요소) => 배열 형태
+            console.log([...f5trip]);
+            console.log(Array.from(f5trip));
+           
+
+            document.querySelector('.f5-list').innerHTML += `
+             <p>밸런스 : ${f5balChk}</p>
+             <p>여행지 : ${tripVal}</p>
+            `
+        })
+        //console.log(document.querySelector('#b1').checked);
+
+
+        //** f6
+        const f6 = document.forms['f6'];
+
+        f6.addEventListener('submit', e => {
+            e.preventDefault();
+
+            // 이름, 나이
+            const name = f6['username'].value || '미입력';
+            const age = f6['userage'].value || '미입력';
+
+            // 성별
+            const gender = document.querySelector('input[name ="gender"]:checked');
+            const genderVal = gender ? gender.value : '선택안함';
+
+            // 희망직종
+            const job = document.querySelectorAll('input[name = "job"]:checked');
+            const jobVals = [...jobs].map(el => el.value);
+            const jobValText = jobVals.length > 0 ? jobVals.join(', ') : '선택안함';
+
+            // 희망지역
+            const location = f6['location'].value;
+
+            // 출력
+            document.querySelector('.f6-txt').innerHTML = `
+                <p>이름: ${name}</p>
+                <p>나이: ${age}</p>
+                <p>성별: ${genderVal}</p>
+                <p>희망직종: ${jobValText}</p>
+                <p>희망지역: ${location}</p>
+            `;
+
+        })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

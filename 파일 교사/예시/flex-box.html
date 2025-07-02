@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>flex-box</title>
+   <style>
+      h1 {
+         display: flex;
+         justify-content: center;align-items: center;
+         height: 100px;background: pink;
+         /* text-align: center;line-height: 100px; */
+      }
+      section {
+         margin: 100px 80px;padding: 40px 80px;
+         background: #dedede;
+         border-radius: 20px;
+      }
+      /* 플렉스는 부모 컨테이너(ul)와 자손 아이템(li) */
+      ul {
+         display: flex;gap: 20px;padding: 50px;
+         list-style: none;background: #FFF;
+      }
+      li {
+         padding: 20px;
+         background: orange;
+      }
+      .box1 ul {
+         display: flex;flex-direction: row;
+         gap: 20px;
+      }
+      .box1 li:nth-child(2) {
+         /* margin-left: 300px; */
+         transform: translateX(300px);
+         background: red;
+      }
+      .box2 ul {
+         display: flex;flex-direction: column;
+         gap: 20px;
+      }
+      .box3 ul {
+         flex-direction: row-reverse;
+      }
+      .box4 ul {
+         flex-direction: column-reverse;
+      }
+      .box5 ul {
+         flex-direction: row; /*메인 축 : 가로*/
+         justify-content: flex-end; /* 메인축 정렬 : 오른쪽*/
+         align-items: center; /* 교차축(세로) 정렬 : 중앙 */
+         height: 400px;
+      }
+      .box6 ul {
+         flex-direction: column;
+         justify-content: flex-end;align-items: center;
+         height: 500px;
+      }
+      .box7 ul {
+         flex-direction: row;
+         justify-content: center;align-items: flex-end;
+         height: 500px;
+      }
+      .box8 ul {
+         flex-direction: row;
+         justify-content: flex-end;align-items: flex-start;
+         height: 300px;
+      }
+      .box9 ul {
+         flex-direction: row;
+         /* justify-content: space-between; */
+         justify-content: space-evenly;
+         height: 300px;padding: 0;
+      }
+      .box9 li {width: 120px;}
+      .box10 ul {
+         flex-direction: column;
+         justify-content: space-between;
+         height: 600px;padding: 0;
+      }
+      .box10 li {width: 120px;}
+      .box11 ul {
+         flex-direction: row; flex-wrap : wrap
+      }
+      .box12 ul {
+         flex-direction: column;flex-wrap: wrap;
+         height: 150px;
+      }
+      .box13 ul {
+         flex-direction: row;
+         flex-wrap: wrap;row-gap: 20px;column-gap: 60px;
+         /* justify-content: flex-end;align-items: flex-end; */
+         justify-content: space-between;
+         /* align-content: space-between; */
+         align-content: center;
+         height: 600px;
+      }
+      .box13 li {width: 300px;height: 50px;}
+
+      .box14 ul {
+         display: flex;flex-direction: row;  
+      }
+      /* 
+      ** order
+      * 기본값 0, 형동생 순서
+      * 숫자가 작을 수록 앞에 배치
+      * 음수도 가능
+      * 시각적으로만 배치가 달라지고 요소의 순서는 달라지지 않음
+      * 반응형 등에서 배치가 달라질 때 사용
+      */
+      .box14 li:nth-child(1) {background: hotpink;order: 3}
+      .box14 li:nth-child(2) {background: tomato;order: 1}
+      .box14 li:nth-child(3) {background: dodgerblue;order: 2}
+      .box14 li:nth-child(4) {background: slateblue;order: 4}
+      
+      .box15 ul {
+         background: url(img/grid.gif);gap: 25px;
+         /* flex-direction: column; */
+      }
+      .box15 li {
+         display: flex;justify-content: center;
+         align-items: center;
+         width: 100px;height: 75px;padding: 0;
+         flex-basis: 200px;
+         /* 
+         * 메인 축 기준의 크기, width나 height보다 우선 적용
+         * flex-shrink와 flex-grow보다는 순위가 낮음
+         */
+      }
+      .box16 ul {
+         background: url(img/grid.gif);padding: 100px;
+      }
+      .box16 li {
+         /* 
+         * flex-shrink의 기본값 : 1, 
+         * 값이 클수록 많이 줄어듦
+         * flex-shrink: 0; => 줄어들지 않음
+         * 부모(컨테이너) 크기에 맞춰서 줄어드는 속성 
+         */
+         flex-basis: 300px;
+      }
+      .box16 li:nth-child(1) {flex-shrink: 0;}
+      .box16 li:nth-child(2) {flex-shrink: 2;}
+      .box16 li:nth-child(4) {flex-shrink: 3;}
+
+      .box17 ul {}
+      .box17 li {         
+         /*  
+         * flex-grow : 0 => 디폴트
+         * 값이 클수록 더 많이 늘어남
+         * 부모요소에 꽉채우는 형태로 늘어남
+         */
+         flex-grow: 1;
+         /* flex-basis: 100px; */
+      }
+      .box17 li:nth-child(1) {flex-grow: 2;}
+      .box17 li:nth-child(2) {flex-grow: 3;}
+   </style>
+</head>
+<body>
+   <h1>플렉스 박스</h1>
+   <section class="box1">
+      <h2>flex-direction : row</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box2">
+      <h2>flex-direction : column</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box3">
+      <h2>flex-direction: row-reverse</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <!-- section.box$@4*12>h2+div>ul>li{item-$}*4 -->
+   <section class="box4">
+      <h2>flex-direction: column-reverse</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box5">
+      <h2>justify-content: flex-end; <br> align-items: center;</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box6">
+      <h2></h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box7">
+      <h2></h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box8">
+      <h2>box8</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box9">
+      <h2>간격 배분</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box10">
+      <h2></h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box11">
+      <h2>flex-wrap : wrap</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-5</li>
+            <li>item-6</li>
+            <li>item-7</li>
+            <li>item-8</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box12">
+      <h2>column, wrap</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box13">
+      <h2>box13</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-5</li>
+            <li>item-6</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box14">
+      <h2>아이템 속성 order</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box15">
+      <h2>flex-basis</h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box16">
+      <h2></h2>
+      <div>
+         <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+         </ul>
+      </div>
+   </section>
+   <section class="box17">
+      <h2></h2>
+      <div>
+         <ul>
+            <li>item-1111111</li>
+            <li>item-222</li>
+            <li>item-33333</li>
+            <li>item-444444444444</li>
+         </ul>
+      </div>
+   </section>
+</body>
+</html>

@@ -1,0 +1,141 @@
+* {
+    margin: 0;padding: 0;list-style: none;
+    font: inherit;color: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;padding-bottom: 800px;
+}
+
+button {cursor: pointer;}
+
+section {margin: 100px 0;}
+
+.ex1 {
+    width: 1000px;margin: auto;border: 1px solid red;
+}
+.ex1 .swiper {
+    height: 500px;
+    border: 2px solid green;
+}
+.swiper-slide {
+    display: flex;justify-content: center;align-items: center;
+    font-size: 50px; color: white;
+}
+.s1 {background: salmon;}
+.s2 {background: yellow;}
+.s3 {background: dodgerblue}
+.s4 {background: violet}
+.s5 {background: powderblue;}
+.s6 {background: greenyellow;}
+.s7 {background: slateblue;}
+.s8 {background: orange;}
+
+.ex1 .swiper-pagination {}
+.ex1 .swiper-pagination span {
+    width: 20px;height: 20px;
+}
+
+.ex1 .swiper-button {
+    border: 1px solid #000;height: auto;
+}
+.ex1 .swiper-button::after {display: none;}
+
+/* ex 2 */
+.swiper2 {
+    height: 700px;overflow: hidden;position: relative;
+}
+.swiper2 .swiper-controls {
+    position: absolute;
+    left: 50%;transform: translateX(-50%);bottom: 50px;
+    border: 1px solid #000;
+    z-index: 10;
+    display: flex;gap: 10px;align-items: center;
+}
+.swiper2 .swiper-button {
+    font-size: 30px; font-weight: 500;
+    cursor: pointer;
+}
+.ex2 .my-pagination{
+    display: flex;gap: 10px;align-items: center;
+}
+.progress {
+    width: 100px;height: 4px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.3);
+}
+.ex2 .bar {
+    width: 0;height: 100%;background: #fff;
+    border-radius: 2px;
+    animation: ex2Bar var(--slide-duration) linear infinite;
+}
+@keyframes ex2Bar {
+    0% {width: 0%;}
+    100% {width: 100%;}
+}
+
+/* ex3 */
+.ex3 {
+    width: 80%;margin: auto;padding-bottom: 30px;position: relative;overflow: hidden;
+  }
+  .ex3 .swiper3 {}
+  .ex3 .swiper-slide {height: 300px;}
+  .ex3 .swiper-scrollbar-drag {
+    background: red;
+  }
+
+  /* ex 4 */
+.swiper4 {
+    height: 700px;overflow: hidden;position: relative;
+}
+.swiper4 .swiper-controls {
+    position: absolute;left: 50%;bottom: 50px; 
+    transform: translateX(-50%);z-index: 100;
+    display: flex;gap: 10px;align-items: center;
+}
+.swiper4 .swiper-button {
+    font-size: 30px; font-weight: 500;
+    cursor: pointer;
+}
+.ex4 .my-pagination{
+    display: flex;gap: 10px;align-items: center;
+    /* border: 1px solid black; */
+}
+.ex4 .progress {
+    width: 100px;height: 4px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.3);
+    /* border: 1px solid blue; */
+}
+.ex4 .bar {
+    width: 0;height: 100%;background: #fff;
+    border-radius: 2px;
+    animation: ex2Bar var(--slide-duration) linear infinite;
+}
+/* @keyframes ex4Bar {
+    0% {width: 0%;}
+    100% {width: 100%;}
+} */
+
+button {
+    background: none;border: none;
+    line-height: 1;
+}
+
+
+/* ex5 */
+.ex5 {}
+.ex5 .swiper5 {
+    width: 80%;margin: auto;overflow: hidden;
+    border: 1px solid #000;height: 600px;
+}
+.ex5 .swiper-wrapper {align-items: center;}
+.ex5 .swiper-slide {height: 400px;transition: all 0.5s;}
+.ex5 .swiper-slide-active {
+    transform: scale((1.2, 1.2));
+    z-index: 1;
+}
+
+
+

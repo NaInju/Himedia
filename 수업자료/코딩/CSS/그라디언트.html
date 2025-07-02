@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient</title>
+
+    <style>
+        body {margin: 0; margin-bottom: 500px; border: 1px dashed blue;     
+            background: url(img/grid.gif);
+        }
+        h1 {background: #000;
+            margin: 50px; padding: 20px;
+            color: white;
+        }
+        h2 { margin: 100px; background: silver; }
+        .box {
+            width: 900px;height: 400px;
+            margin: 100px 200px;
+        }
+        
+        /* linear(선형)  */
+        .g1 {
+            background: linear-gradient(to right,yellow, yellowgreen, aqua);
+        }
+        .g2 {
+            background: linear-gradient(to right,yellow, aqua 20%, blue);
+        }.g3 {
+            border: 1px solid blue;
+            background-image: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
+        }
+        .g4 {
+            width: 400px;height: 300px;
+            background: url(img/news_img.jpg);
+            background-size: cover;
+            color: #fff; font-size: 26px; font-weight: bold;
+        }
+        .g4 .text {
+            height: 100%;display: flex;align-items: flex-end;
+            padding: 30px; box-sizing: border-box;
+            background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 60%);
+        }
+        .g5 {
+            background-image: repeating-linear-gradient(to right, red 0%, gold 12%, blue 20%);
+        }
+
+        /* radial(방사형) */
+        .g6
+        {
+            background-image: radial-gradient(yellow, aqua);
+        }
+        .g7
+        {
+            width: 400px;
+            background-image: radial-gradient(yellow, aqua);
+        }
+        .g8
+        {
+            background-image: radial-gradient(circle, yellow, aqua);
+        }
+        .g9
+        {
+            width: 400px;
+            background-image: radial-gradient(circle, yellow, aqua, blue);
+        }
+        .g10
+        {
+            width: 400px; border-radius: 50%;
+            background-image: radial-gradient(circle, yellow, aqua, blue);
+        }
+        /*   */
+
+        /* conic(angular, angle) */
+        .g11 {
+            width: 400px;border-radius: 50%;
+            background-image: conic-gradient(#fff,silver,#565656);
+        }
+        .g12 {
+            width: 400px; border-radius: 50%;
+            background-image: conic-gradient(
+                yellow 20deg, aqua 40deg, aqua 60deg, blue 100deg, slateblue 140deg
+                );
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <h1>Gradient</h1>
+    <h2>Linear</h2>
+    <div class="box g1"></div>
+    <div class="box g2"></div>
+    <div class="box g3"></div>
+    <div class="box g4">
+        <div class="text">이미지 카드</div>
+    </div>
+    <div class="box g5">
+    </div>
+    <div class="box g6"></div>
+    <div class="box g7"></div>
+    <div class="box g8"></div>
+    <div class="box g9"></div>
+    <div class="box g10"></div>
+    <div class="box g11"></div>
+    <div class="box g12"></div>
+    <div class="box g13"></div>
+    <div class="box g14"></div>
+    <div class="box g15"></div>
+    <div class="box g16"></div>
+    <div class="box g17"></div>
+    <div class="box g18"></div>
+    <div class="box g19"></div>
+    <div class="box g20"></div>
+</body>
+</html>

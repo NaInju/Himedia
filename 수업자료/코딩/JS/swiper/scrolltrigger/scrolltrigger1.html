@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Trigger 1</title>
+    <style>
+        * {
+            margin: 0;padding: 0;
+        }
+        section {
+            display: flex;align-items: center;
+            height: 90vh;position: relative;
+        }
+        section:nth-child(2n) {
+            background: #ededed;
+        }
+        section strong {
+            position: absolute;left: 30px;top: 30px;
+            font-size: 50px;font-weight: bold;color: #999;
+            font-family: "Arial Black";
+        }
+        .box {width: 200px;height: 200px;background: dodgerblue;}
+
+        .ex7 {justify-content: center;}
+        .ex7 .box, .ex8 .box {
+            background: hotpink;
+        }
+
+        .ex12 {align-items: flex-start;background: #ededed;}
+
+        
+    </style>
+
+    <!-- GSAP의 scrolltrigger => 2개의 cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    
+
+    <script src="scrollTriggerEx.js" defer></script>
+    
+    
+</head>
+<body>
+<div id="wrap">
+    <section class="ex1">
+        <div class="box"></div>
+        <strong>01</strong>
+    </section>
+    <section class="ex2">
+        <div class="box"></div>
+        <strong>02</strong>
+    </section>
+    <section class="ex3">
+        <div class="box"></div>
+        <strong>03</strong>
+    </section>
+    <section class="ex4">
+        <div class="box"></div>
+        <strong>04</strong>
+    </section>
+    <section class="ex5">
+        <div class="box"></div>
+        <strong>05</strong>
+    </section>
+    <section class="ex6">
+        <div class="box"></div>
+        <strong>06</strong>
+    </section>
+    <section class="ex7">
+        <div class="box"></div>
+        <strong>07</strong>
+    </section>
+    <section class="ex8">
+        <div class="box"></div>
+        <strong>08</strong>
+    </section>
+    <section class="ex9">
+        <div class="box"></div>
+        <strong>09</strong>
+    </section>
+    <section class="ex10">
+        <div class="box"></div>
+        <strong>10</strong>
+    </section>
+    <section class="ex11">
+        <div class="box"></div>
+        <strong>11</strong>
+    </section>
+    <section class="ex12">
+        <div class="box"></div>
+        <strong>12</strong>
+    </section>
+    <section class="ex13">
+        <div class="box"></div>
+        <strong>13</strong>
+    </section>
+    <section class="ex14">
+        <div class="box"></div>
+        <strong>14</strong>
+    </section>
+    <section class="ex15">
+        <div class="box"></div>
+        <strong>15</strong>
+    </section>
+    <section class="ex16">
+        <div class="box"></div>
+        <strong>16</strong>
+    </section>
+    <section class="ex17">
+        <div class="box"></div>
+        <strong>17</strong>
+    </section>
+    <section class="ex18">
+        <div class="box"></div>
+        <strong>18</strong>
+    </section>
+    <section class="ex19">
+        <div class="box"></div>
+        <strong>19</strong>
+    </section>
+    <section class="ex20">
+        <div class="box"></div>
+        <strong>20</strong>
+    </section>
+</div>
+</body>
+</html>

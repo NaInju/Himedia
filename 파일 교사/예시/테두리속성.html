@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>테두리속성</title>
+   <style>
+      body {margin-bottom: 500px;}
+      .wrap {
+         display: flex;gap: 30px 2%;
+         flex-wrap: wrap;padding: 50px;
+      }
+      .wrap>div {
+         width: 23.5%;height: 250px;
+         background: #dedede;
+         box-sizing: border-box;
+      }
+      .b1 {
+         border-width: 10px;
+         border-color: red;
+         border-style: solid;
+      }
+      .b2 {border: 10px double red;}
+      .b3 {border: 10px dashed red;}
+      .b4 {border: 10px dotted red;}
+      .b5 {border: 20px inset red;}
+      .b6 {border: 20px outset dodgerblue;}
+      .b7 {border: 20px groove green;}
+      .b8 {border: 20px ridge red;}
+      .b9 {
+         border-top: 30px dashed orange;
+         border-bottom: 10px double teal;
+      }
+      .wrap .b10 {
+         border-radius: 50px;
+         background: #333;
+      }
+      .b11 {
+         /* border-radius: 100px 0 0 0; */
+         /* border-radius: 100px 0 100px 0; */
+         border-radius: 100px 0;
+      }
+      .b12 {
+         border-radius: 30%;
+      }
+      .wrap .b13 {
+         background: #333;
+         width: 300px;height: 300px;
+         border-radius: 200px;
+         border-top: 10px solid red;
+      }
+      .wrap .b14 {
+         background: #333;
+         width: 200px;height: 200px;
+         border-radius: 50%;
+      }
+      .wrap .b15 {
+         background: #333;
+         width: 500px;height: 200px;
+         border-radius: 50%;
+      }
+
+
+
+      /* 선택자 우선순위 */
+      body #id {color: cyan} /*101(1 + 100) */
+      #id {color: hotpink} /*100*/
+      .class {color: orange !important;} /*무조건*/
+      .class {color: salmon;} /*10*/
+      h1 {color: green} /*1*/
+      * {color: red} /*0*/
+      body h1.class#id {color: slateblue} /*102*/
+   </style>
+</head>
+<body>
+   <h1 class="class" id="id" style="color: #000;">선택자 우선 순위</h1>
+   <div class="wrap">
+      <div class="b1"></div>
+      <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+        <div class="b5"></div>
+        <div class="b6"></div>
+        <div class="b7"></div>
+        <div class="b8"></div>
+        <div class="b9"></div>
+        <div class="b10"></div>
+        <div class="b11"></div>
+        <div class="b12"></div>
+        <div class="b13"></div>
+        <div class="b14"></div>
+        <div class="b15"></div>
+    </div>
+</body>
+</html>

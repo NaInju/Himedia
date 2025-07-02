@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열(Array)</title>
+    <script>
+        // 하나의 변수명에 여러 데이터를 저장
+        // [] 안에 여러 데이터를 , 로 구분
+        // 배열(객체)은 const 키워드를 사용하는 것이 관행
+
+        let arr1 = [100, 5, 'hello'];
+
+        console.log(typeof arr1); //object (배열은 object에 포함된 유형)
+
+        console.log(typeof arr1[2]);
+        console.log(typeof arr1[1]);
+        console.log(typeof arr1[0]);
+
+        const fruits = ['apple','cherry', 'banana', 'grape','mango', 'kiwi']
+
+        console.log(fruits[2]);
+
+        const arr2 = [33 ,28, 94, 66, 73]
+        console.log(arr2[1]); //28
+        console.log(arr2[1] + 1); //29
+        console.log(arr2[1+1]); //94 = arr[2]
+
+        // const 는 한번만 가능, 대신 수정은 됨.
+
+        const animals = ['dog'];
+        console.log(animals); //dog
+
+        animals[0] = 'cat';
+        console.log(animals); //cat
+
+        animals[1] = 'rabbit';
+        animals[2] = 'zebra';
+        animals[3] = 'otter';
+        animals[animals.length - 1] = 'sheep';
+        console.log(animals);
+        
+        console.log(animals.length); 
+        //배열의 데이터 갯수, 1부터 시작하므로 방번호보다는 1이 큼
+
+
+        console.log('*** 다차원 배열');
+
+        const arr3 = [[1, 2, 3],['가', '나', '다'],'헬로우']
+        console.log(arr3[0], typeof arr3[0]);
+        console.log(arr3[1], typeof arr3[1]);
+        console.log(arr3[2], typeof arr3[2]);
+
+        console.log(arr3[1][2]);
+
+
+        //const arr4 = [월[],화,수];
+        const arr4 = [
+            ['국어','수학','체육'],
+            ['역사','음악','과학'],
+            ['미술','영어','자율'],
+        ];
+
+        console.log(arr4[1][2]); //화요일 3교시 => 과학
+
+        const arr5 = ['HTML', 'CSS', 'JavaScript']; //=> literal
+        const arr6 = new Array('Korea','USA'); //생성자 객체(비권장)
+        arr6[4] = 'Japan';
+        arr6[3] = 'China';
+        arr6[2] = 'Vietnam';
+        
+        console.log(arr6);
+
+
+        console.log('***********');
+        //** 배열 메소드
+
+        // push() => 배열의 맨 마지막에 데이터 추가
+        
+        console.log(fruits);
+
+        fruits.push('melon');
+        console.log(fruits);
+
+        //watermelon, orrange
+        fruits.push('watermelon','orange');
+        console.log(fruits);
+
+
+        //pop() => 맨 마지막 데이터 삭제
+
+        console.log(fruits);
+        fruits.pop()
+
+        fruits.pop();
+        console.log(fruits);
+
+        // 동물 배열 마지막에 코끼리 추가
+        console.log(animals);
+        animals.push('elephant');
+        console.log(animals);
+
+        // 나라 배열 마지막 Japan 삭제
+        console.log(arr6);
+        arr6.pop();
+        console.log(arr6);
+
+        // unshift() => 맨 처음에 데이터를 추가
+        console.log(arr6);
+        console.log(arr6[0]); //Korea
+        arr6.unshift('France');
+        console.log(arr6);
+        console.log(arr6[0]); //France
+
+
+        // shift() => 맨 처음 데이터를 삭제
+        console.log(fruits);
+        console.log(fruits[0]); //apple
+        fruits.shift();
+        console.log(fruits);
+        console.log(fruits[0]); //cherry
+
+        // 배열의 중간 데이터를 추가 / 삭제 /교체
+        // splice (추가할 위치, 삭제할 갯수, 추가할 요소)
+        fruits.splice (2, 0, 'orange')
+        console.log(fruits);
+
+        //grape => lemon
+        fruits.splice(3, 1, 'lemon')
+        console.log(fruits);
+
+        //
+        animals.splice(1) // 인덱스 1부터 전부 삭제
+        console.log(animals);
+
+
+        /**** 위의 메소드들은 원래 배열의 데이터를 완전 변경 **/
+ 
+        //concat => 배열을 합침
+        // 원래 배열의 데이터를 변형하는 것이 아님
+        // 새로운 배열을 변환한다
+
+        arr1.concat('world');
+
+        // arr1 => [100, 5, 'hello']
+        // arr2 => [33, 28, 94, 66, 73]
+
+        // const new1 = arr1 + arr2
+        // console.log(new1); // [100, 5, hello33, 28, 94, 66, 73]
+        // console.log(typeof new1[2]); // hello33 은 string
+
+        const new1 = [arr1, arr2]
+        console.log(new1);
+        console.log(new1.length); //2
+
+        const new2 = arr1.concat(arr2)
+        console.log(new2);
+
+
+        //... 스프레드 연산자, 전개 연산자
+        // concat()과 비슷, 원래 배열을 유지하면서 합쳐진 새로운 배열을 변환
+
+        
+        const new3 = [...fruits, ...animals] //...로 기존의 배열 풀어서 넣음.
+        const new4 = [fruits, animals] // => new3 는 그냥 0번 방에 fruits, 1번 방에 animals 들어간 형태 
+
+        console.log(new3);
+        console.log(new4);
+        
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

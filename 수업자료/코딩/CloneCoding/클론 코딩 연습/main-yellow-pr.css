@@ -1,0 +1,103 @@
+/* @charset "utf-8";
+
+/* common */
+:root {
+    font-size: 10px;
+    --yellow-color: #ffc72c
+
+    /* --main-green: #00a287;
+    --main-blue: #005dab;
+    --sub-blue: #003483; */
+    /* --h2-size: 6.4rem; */
+}
+
+body {
+
+}
+
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;top: 0;
+    color: #fff;
+    z-index: 10;
+    transition: background 0.5s 0.2s;
+}
+
+header .container {
+    display: flex;height: 10rem;
+    justify-content: space-between;align-items: center;
+    padding: 0 16rem;
+    /* 콘텐츠 안에 간격이 아니라 마진이 변함. */
+    border: 1px dashed blue;
+}
+
+header h1 a {
+    display: block;
+    /* width: 22.8rem;height: 7.2rem;  이미지 사이즈*/
+    /* width: 13.5rem;height: 4.3rem;
+    background: url(./img/yellow/logo_sprite-Brn9Kh_o.png) center top / cover no-repeat;; */
+    display: block;width: 13.4rem;height: 4.2rem;
+    background: url(../img/yellow/logo.png) 0 0 / 100% auto;
+    transition: background 0.3s;
+    border: 1px solid red;
+}
+
+/* header - gnb */
+#gnb .dep1 {display: flex;}
+#gnb .dep1 li {position: relative;}
+#gnb .dep1>li>a {
+    display: flex;justify-content: center;align-items: center;width: 14.2rem;height: 10rem;
+  }
+
+/* #gnb .dep1 li a {
+    display: flex;justify-content: center;align-items: center;
+    width: 14.2rem;height: 10rem;
+    font-size: 1.8rem;font-weight: 700;
+    margin-right: 7rem;
+    border: 1px dashed red;
+} */
+
+#gnb .dep2 {
+    display: none;
+    position: absolute;width: 100%;
+    display: flex;flex-direction: column;gap: 2rem;
+    padding: 3rem 0;
+    color: #222;text-align: center;
+    
+    
+    border: 1px dashed red;
+}
+
+
+#gnb .dep2 li:hover {color: var(--yellow-color);}
+
+/* scroll */
+header .scroll {
+    background: #fff;color: #222;
+    border-bottom: 1px soldi #ededed;
+    transition: background 0.3s 0.3s;
+}
+header .scroll h1 a{
+    background: url(img/yellow/logo_sprite-Brn9Kh_o.png) 0 0 bottom / 100% auto;
+}
+header.scroll #gnb .dep2 {display: flex;}
+
+
+header::before {
+    content: "";
+    position: absolute;left: 0;right: 0;top: 10rem;
+    background: #fff;height: 0;
+    transition: all 0.3s;
+}
+
+header.scroll::before {
+    height: 30rem;
+  }
+  header.scroll h1 a {
+    background: url(../img/yellow/logo.png) 0 bottom / 100% auto;
+  }
+  header.scroll #gnb .dep2 {
+    height: 30rem;padding: 3rem 0;
+  } */

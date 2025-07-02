@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 for</title>
+    <script>
+        //** 반복문 for
+        // for (초기값;반복범위;증감값) {//반복할 실행문}
+
+        // 3번 반복
+        console.log('반복문');
+        console.log('반복문');
+        console.log('반복문');
+
+        let n = 0;
+
+        for(let i = 0; i < 3; i++) {
+            n++;
+            console.log('반복문을 이용함. -> ' + n);
+        }
+        console.group('1~10까지 출력');
+        for(i = 1; i<11; i++)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        console.group('6~19까지 출력');
+        for(i = 6; i<20; i++)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        
+        console.group('1~10까지 역순으로 출력');
+        for(i = 10; i>0; i--)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        console.group('1~10 중에 홀수만 출력');
+        for(i = 1; i < 10; i+=2)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        console.group('1~10 중에 짝수만 출력');
+        for(i = 2; i < 10; i+=2)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        console.group('1~30 중에 3의 배수만 출력');
+        for(i = 3; i < 31; i+=3)
+        {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        console.group('1~30 중에 3의 배수만 출력');
+        for(i = 1; i < 31; i++)
+        {
+            if ( i % 3 === 0) console.log(i);
+        }
+        console.groupEnd();
+
+        for(let i= 55; i<79; i++) {n++}
+        console.log(`몇 번 반복? ${n}`);
+
+        const animalName = [ 'cat', 'fox', 'hedgehog', 'otter', 'puppy', 'rabbit', 'ram', 'tiger','zebra']
+
+        console.group('콘솔에 동물이름을 한 줄씩 출력');
+        for(i = 0; i < animalName.length; i++){
+            console.log(animalName[i]);
+        }
+        console.groupEnd();
+
+        console.group('for..of');
+        // for (변수 or 순회가능객체) {}
+        // 변수가 객체 내에서 값을 들고 나온다
+        for(let aname of animalName) {
+            console.log(aname);
+        }
+        console.groupEnd();
+
+
+
+        console.group();
+     
+        console.groupEnd();
+
+    </script>
+</head>
+<body>
+    <div class="ex1"></div>
+    <script>
+        //동물 이름 배열을 이용해 ex1안에 이미지가 다 보이게, for..of
+
+        const ex1 = document.querySelector('.ex1');
+        // ex1.innerHTML = ` <img src = "img/${animalName[1]}.jpg" alt = "" width= "200"> <br> `;
+
+        let rank = 0;
+        for(let aname of animalName) {
+            rank++;
+            ex1.innerHTML += ` ${rank}위 <img src = "img/${aname}.jpg" alt = "" width= "200"> <br> `;
+        }
+
+        const numbers = [54, 69, 34, 61, 92];
+        let sum = 0;
+        console.group('numbers 배열의 모든 숫자의 합');
+        for(let num of numbers) {
+            sum += num
+        }
+        console.log(`숫자 합 : ${sum}`);
+        console.groupEnd();
+
+        const student = {
+            name : 'James',
+            score : [66, 30, 80]
+        }
+
+        let sumResult = 0;
+        for(let jscore of student.score ) {
+            sumResult += jscore
+        }
+        console.log(`제임스의 점수 총합 : ${sumResult}`);
+
+        //for..in => 객체의 속성을 순회하면서 객체값을 가져옴
+        //for(key in Object) {}
+
+        const chr1 = {
+            name: '둘리',
+            age: 10,
+            gender: '남',
+            city: 'Seoul'
+        }
+        const chr2 = {
+            name: '도우너',
+            age: 11,
+            gender: '남',
+            city: '깐따삐야별'
+        }
+        const chr3 = {
+            name: '또치',
+            age: 8,
+            gender: '여',
+            city: '서울'
+        }
+
+        console.group('캐릭터 정보');
+        for(let key in chr1) {
+            console.log(`${key} : ${chr1[key]}`);
+        }
+        for(let key in chr2) {
+            console.log(`${key} : ${chr1[key]}`);
+        }
+        for(let key in chr3) {
+            console.log(`${key} : ${chr1[key]}`);
+        }
+        console.groupEnd();
+
+        const scores = {
+            kor: 80,
+            eng: 75,
+            math: 90
+        }
+        let total = 0;
+        for (let score in scores) {
+            console.log(scores[score]);
+            total += scores[score]
+        }
+        console.log(`점수의 총합 : ${total}`);
+
+        let ddochiG;
+        for (let g in chr3) {
+            if (g === 'gender') ddochiG = g; 
+        }
+        // 'gender'로 표현 하는 이유가 뭘까?
+        console.log(`또치(ch3)의 성별 : ${ddochiG}`);
+
+        const persons = [
+            {
+                name: '유재석',
+                gender: '남',
+                job: '연예인'
+            }, {
+                name: '김연아',
+                gender: '여',
+                job: '운동선수'
+            }, {
+                name: '손흥민',
+                gender: '남',
+                job: '운동선수'
+            }
+        ]
+
+        for ( let person of persons ) {
+            console.log(`이름 : ${person.name}`);
+            //console.log(persons);
+        }
+       
+        console.group(`forEach() 함수`);
+        //순회객체.forEach(function(요소, 인덱스, 배열) {}) => 배열의 각 요소들을 순회하면서 콜백함수 실행
+        numbers.forEach(function(num) {
+            console.log(num);
+        })
+        console.groupEnd();
+
+        console.log('-----------------');
+        
+        //persons 의 직업만 출력
+        persons.forEach((person) => {
+            console.log(`${person.job}`);
+        });
+
+        //persons에서 성별이 남자인 사람의 이름
+        persons.forEach((person) => {
+            if (person.gender === '남') {
+                console.log(`${person.name}`);
+            }
+        });
+
+        //student의 점수 평균을 한번만 출력
+        let t= 0;
+        student.score.forEach((s) => {
+            t += s
+            console.log(t/student.score.length);
+        })
+
+        // forEach로 60이상의 숫자의 합
+        const numArray = [75, 59, 63, 84, 31, 99, -30];
+        let sum2= 0;
+        numArray.forEach((num2) => {
+            if (num2 >= 60) {sum2 += num2}
+            console.log(sum2);
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표태그</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            border: 1px solid rgb(26, 190, 190);
+            width: 100px;
+        }
+        td {
+            border: 1px solid rgb(26, 190, 190);
+            width: 100px;
+        }
+        thead{ background-color: pink;
+
+        }
+        tbody {
+            background-color: silver;
+        }
+        tfoot {
+            background-color: gold;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>표(table) 태그</h1>
+    <h2>표 태그 구성</h2>
+    <table>
+        <tr><!-- Table Row -->
+             <td>1</td> <!-- Table Data -->
+             <td>2</td>
+             <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <!-- tr*3>td*3 -->
+    </table>
+
+    <h2>주간 수업 시간 배당표</h2>
+    <table>
+        <tr>
+            <td></td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+        </tr>
+        <tr>
+            <td>1-2학년</td>
+            <td>5교시</td>
+            <td>4교시</td>
+            <td>4교시</td>
+            <td>5교시</td>
+            <td>5교시</td>
+        </tr>
+        <tr>
+            <td>3-4학년</td>
+            <td>5교시</td>
+            <td>6교시</td>
+            <td>4교시</td>
+            <td>6교시</td>
+            <td>5교시</td>
+        </tr>
+        <tr>
+            <td>5-6학년</td>
+            <td>6교시</td>
+            <td>6교시</td>
+            <td>5교시</td>
+            <td>6교시</td>
+            <td>6교시</td>
+        </tr>
+    </table>
+
+    <h2>농산물 가격</h2>
+    <table>
+        <tr>
+            <th>년도</th>
+            <th>사과</th>
+            <th>배</th>
+            <th>배추</th>
+            <th>딸기</th>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>3,000</td>
+            <td>2,600</td>
+            <td>6,200</td>
+            <td>1,541</td>
+        </tr>
+        <tr>
+            <td>2013</td>
+            <td>2,500</td>
+            <td>1,366</td>
+            <td>3,625</td>
+            <td>2,566</td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>2,300</td>
+            <td>1,500</td>
+            <td>4,587</td>
+            <td>3,300</td>
+        </tr>
+    </table>
+
+    <h2>나나 문구점의 일별 판매실적</h2>
+    <!-- **table>(tr>th*5)+(tr*7>td*5)**
+         **table>tr>th*5^tr*7>td*5**
+         **table>tr>th*5^^tr*7>td*5** -->
+    <table>
+        <thead>
+            <tr>
+                <th>날짜</th>
+                <th>연필</th>
+                <th>지우개</th>
+                <th>볼펜</th>
+                <th>노트</th>
+            </tr>
+        </thead>
+    <!-- 권장사항 : 브라우저가 표 본문을 정리한 바닥글에 먼저 접근할 수 있도록 -->
+        <tbody>
+            <tr>
+                <td>7/1</td>
+                <td>50000</td>
+                <td>1200</td>
+                <td>5500</td>
+                <td>47000</td>
+            </tr>
+            <tr>
+                <td>7/2</td>
+                <td>20000</td>
+                <td>5400</td>
+                <td>6500</td>
+                <td>38000</td>
+            </tr>
+            <tr>
+                <td>7/3</td>
+                <td>35500</td>
+                <td>3300</td>
+                <td>12500</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>7/4</td>
+                <td>7500</td>
+                <td>8900</td>
+                <td>3500</td>
+                <td>15500</td>
+            </tr>
+            <tr>
+                <td>7/5</td>
+                <td>55000</td>
+                <td>5400</td>
+                <td>8900</td>
+                <td>7500</td>
+            </tr>
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>168000</td>
+                <td>24200</td>
+                <td>36900</td>
+                <td>128000</td>
+            </tr>
+            <tr>
+                <td>평균</td>
+                <td>33600</td>
+                <td>4840</td>
+                <td>7380</td>
+                <td>25600</td>
+            </tr>
+        </tfoot> 
+       
+    </table>
+    <!-- table>tr>th*5+tr*7>td*5 -->
+
+
+</body>
+</html>

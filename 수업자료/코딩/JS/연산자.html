@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+    <script>
+        let x = 10, y =3, z= -5, a = 'Hello', b = 'World';
+        console.log('x = 10, y = 3, z = -5');
+        console.log('a = Hello', 'b = World');
+
+        console.log('** 산술연산자');
+        // 덧셈 연산자
+        console.log('x + y : ',x + y);
+
+        // 뺄셈 연산자
+        console.log('x - y :', x - y);
+
+        // 곱셈 연산자
+        console.log('x * y :', x * y);
+
+        // 나눗셈 연산자
+        console.log('x / y :', x / y);
+
+        // 나머지 연산자
+        // 몫을 정수까지 나누고 난 나머지 값
+        // 짝수홀수, 3의 배수 등을 구함
+        console.log('x % y :', x % y);
+
+
+        /*
+         * 비교 연산자
+         * 결과값은 Boolean(불리언) 값으로 반환 => true / false
+         * 
+         a > b : a bigger than b
+         a < b : a smaller than b
+         a >= b
+         a <= b
+         a == b : same
+         a = b : 할당연산자
+         a != b : not same
+         *
+        */ 
+        console.log('** 비교연산자');
+        console.log('x > y :',x > y); //true
+        console.log('x < y :',x < y); //false
+        console.log('x >= y :',x >= y); //true
+        console.log('x <= y :',x <= y); //false
+        console.log('x == y :',x == y); //false
+        console.log('x != y :',x != y); //true
+
+        let t = '10'; // 문자열
+        console.log(x+5); //15 숫자 + 숫자
+        console.log(t+5); //105 문자 + 숫자 => 문자숫자 꼴
+
+        //* 데이터 타입(number / string)이 다르더라도 숫자값으로만 비교
+        console.log(x == t); // true -> 10 == '10'
+
+        //* 데이터 타입까지 비교
+        console.log(x === t); //false
+
+        console.log('** 할당 연산자');
+        // x = y 
+        // => y의 값을 x 변수에 할당하라
+        // 두 값이 같다는 뜻이 아니다.
+
+        y = 20;
+        console.log(x > y); 
+
+        y = 0;
+        console.log(y); // 0
+
+        y = (y + 1)
+        y += 4
+        console.log(y);
+
+        y -= 1
+        console.log(y);
+
+        y *= 2
+        console.log(y);
+
+
+        console.log('** 문자열(String) 연결');
+        console.log(t + 5); //'10'5
+        console.log('200' + 1); //2001
+
+        document.write('<h1>'+ a + ' ' + b +'</h>')
+
+        console.log(x + y); // 18
+        console.log(x + y + z); // 13
+        console.log(x + y + a); // 18Hello
+        console.log(a + x + y); // Hello108
+        console.log(x + a + y); // 10Hello8
+
+
+        console.log('** 논리연산자');
+
+        /**
+         
+            AND, 논리곱, &&
+                x && y
+                : x가 true이고 y도 true 이면 true
+                : 둘 중 하나라도 false 이면 false
+
+            OR, 논리합, ||
+                x || y
+                : 둘 중 하나라도 true이면 true
+
+            NOT, 논리부정, !
+                ! x
+                : 무조건 반대
+        */
+        console.log(x > 0); //true => 양수
+        console.log(z > 0); //false => 음수
+
+        console.log(x % 2 === 0); //true => 짝수
+        console.log(z % 2 === 0); //false => 홀수
+        
+        y -= 5
+        let i = -4;
+
+        // 양수이고 짝수인 숫자 구하기
+        console.log('양수 && 짝수');
+        console.log(x, x > 0 && x % 2 ===0); //true 
+        console.log(y, y > 0 && y % 2 ===0); //true 
+
+        // 0이 아니면서 홀수인 숫자
+        console.log(x !== 0 && x % 2 !== 0); //false
+        console.log(y !== 0 && y % 2 !== 0); //true
+        console.log(z !== 0 && z % 2 !== 0); //true
+        console.log(i !== 0 && i % 2 !== 0); //false
+
+        // 숫자 5 ~ 15 범위 안의 숫자인지
+        console.log(x >= 5 && x <= 15); //true
+        console.log(x > 1 && x < 10); //false
+
+
+        let year = 2024;
+        // 년도를 4로 나눈 나머지 값이 0
+        // 년도를 100으로 나눈 나머지 값이 0이 아님
+        // 년도를 400으로 나눈 나머지 값이 0
+        console.log(
+            (year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)
+        );
+
+        /**
+         * 조건 연산자
+         * 조건의 값이 true이면 A, false이면 B를 반환 
+         * (조건) ? A : B;
+         * 현재시간 > 9:40 ? '지각' : '정상출석'
+        
+        */
+       console.log('*** 조건 연산자');
+
+       let age = 18;
+
+       // 나이가 18세 이하면 미성년, 그렇지 않으면 성인
+       // (age <= 18) ? '미성년' : '성인'
+        
+       let adult = age <= 18 ? '미성년' : '성인';
+
+       console.log('당신의 나이는 ' + age + '세이고 ' + adult + ' 입니다');
+
+
+       // 점수가 60점 이상이면 합격, 그렇지 않으면 불합격
+       // 점수: 66점, 수료 : 합격 => 콘솔에 출력
+       
+       let score = 66;
+       let isPassed = (score >= 60) ? '합격' : '불합격';
+       
+       console.log('점수 '+ score + '점, 수료 :' + isPassed);
+        
+
+       let weekDay = '월';
+       // '토' 이거나 '일'이면 '주말', 그렇지 않으면 '평일'
+       //오늘은 평일/주말입니다.
+       
+       let todayIs = ( weekDay == '토' || weekDay == '일' ) ? '주말' : '평일' ; 
+       // weekDay == '토' || '일' 처럼 생략 안됨. 
+       console.log('오늘은 '+ todayIs +'입니다.');
+
+       //나이(age)가 12세 이상이고 19세 이하 이면 '청소년', 그렇지 않으면 '그 외'
+       //12세 이하면 '어린이', 13~19면 '청소년', 20~35면 '청년', 36~69면 '중장년', 70세 이상 '노년'
+       age = 100;
+       let generation = 
+            ( age < 12 ) ? '어린이' 
+            :( age > 12 && age <= 19 ) ? '청소년' 
+            :( age > 19 && age <= 35 ) ? '청년' 
+            :( age > 35 && age <= 69 ) ? '중장년' 
+            : '노년';
+
+       console.log(age + '세,' + generation);
+
+      
+        
+       // 과제
+
+       score = 55;
+       let grade;
+       
+       //score가 90점 이상이면 'A', 80점 이상이면 'B', 70점 이상이면 'C', 60점이면 'D', 그 외에는 'F'
+
+
+       console.log('** 증감 연산자');
+
+       /*
+        단항 연산자
+            a++ => 1씩 증가 ( i = i + 1)
+            a-- => 1씩 감소 (i = i - 1)
+       */
+
+       console.log(`변수 x : ${x}`); //10
+
+       x = x + 1;
+       console.log(`변수 x : ${x}`); //11
+
+       x = x - 1;
+       console.log(`변수 x : ${x}`); //10
+
+       x = x++; //x가 1 증가하지만 증가하지 않은 원래의 값을 할당
+       console.log(`변수 x : ${x}`); //10
+
+       x = ++x;
+       console.log(`변수 x : ${x}`); //11
+
+       x = x--;
+       console.log(`변수 x : ${x}`); //11
+
+       x = --x;
+       console.log(`변수 x : ${x}`); //10
+
+       // ++a (선증가), a++ (후증가)
+       // 할당연산자와 함께 사용하면 결과가 달라짐
+       // 산술연산자 할당연산자보다 우선순위가 높다
+
+       x = x++;
+       console.log(`변수 x : ${x}`);
+       x = x++;
+       console.log(`변수 x : ${x}`);
+       x = ++x;
+       console.log(`변수 x : ${x}`);
+
+       a = ++x;
+       console.log(`a :${a}, x: ${x}`);
+       a = x++;
+       console.log(`a :${a}, x: ${x}`);
+       a = ++x;
+       a = ++x;
+       console.log(`a :${a}, x: ${x}`);
+       a = x++;
+       console.log(`a :${a}, x: ${x}`);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

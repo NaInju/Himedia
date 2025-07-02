@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>image_sprites</title>
+   <style>
+      .logo1 {
+         height: 134px;width: 376px;
+         background-image: url(img/google.png);
+         text-indent: -9999px;
+         border: 1px solid #000;
+      }
+      .logo2 {
+         width: 225px;height: 225px;
+         background: url(img/starbucks.png);
+      }
+      .blind {
+         display: block; width: 1px;height: 1px;
+         overflow: hidden;
+      }
+      .spr1 {
+         width: 44px;height: 57px;
+         background-image: url(img/sprite.png);
+         background-position: -411px -164px;
+         border: 1px solid #000;
+      }
+      .spr2 {
+         width: 80px;height: 80px;
+         background-image: url(img/sprite.png);
+         background-position: -215px -153px;
+      }
+   </style>
+</head>
+<body>
+   <h1>이미지를 css로 처리하기</h1>
+   <h2>IR 기법</h2>
+   <p>- 읽는 브라우저(검색엔진, 스크린리더기 등)는 텍스트로 입력</p>
+   <p>- 보이는 브라우저에서는 이미지를 css로</p>
+
+   <div class="logo1">구글</div>
+   <div class="logo2"><span class="blind">스타벅스</span></div>
+
+   <h2>이미지 스프라이트</h2>
+   <div class="spr1">
+      <span class="blind">파파고</span>
+   </div>
+   <div class="spr2">
+      <span class="blind">line</span>
+   </div>
+</body>
+</html>

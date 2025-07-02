@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>면적비율</title>
+    <style>
+        body {margin-bottom: 500px;}
+        .ra1 {
+            width: 50%;
+            /* 부모쪽 */
+            height: auto;
+            /* 자손쪽 */
+            /* white-space: nowrap; */
+            margin: 100px auto;
+            background: pink;
+        }
+        .ra2 {
+            width: 50%;
+            /* height: auto; */
+            /* height: 30%; 부모 높이 값이 정해여있어야함. 그 때의 백분율 */
+            height: 288px;
+            background: url(img/jiranjigyo.png);
+            background-size: 100% auto;
+        }
+        .ra3 {
+            width: 50%;aspect-ratio: 2/1;
+            border: 1px solid #000;
+            background: url(img/grid.gif);
+            background-size: 100% auto;
+        }
+        .ra4 {
+            width: 30%;
+            aspect-ratio: 1/1.31;
+            background: url(img/cat.jpg) no-repeat;
+            background-size: 100% auto;
+            display: flex; align-items: flex-end;
+            border: 1px solid #000;
+        }
+        .ra4 span,.ra5 span {
+            color: #fff; padding: 20px;width: 100%;
+            background: rgba(0,0,0,0.5); font-size: 30px;
+        }
+        .ra5 {
+            width: 30%;
+            aspect-ratio: 1.61/1;
+            background: url(img/fox.jpg) no-repeat;
+            background-size: 100% auto;
+            display: flex; align-items: flex-end;
+            border: 1px solid #000;
+            /* 
+            aspect-ratio: 1/0.625;
+            여우 이미지의 실제 가로, 세로 크기 비율을 계산
+            세로의 크기가 가로를 기준으로
+            가로가 100% 이면 세로는 62.5%
+            가로가 1이면 세로는 0.625 
+            */
+        }
+        .ra6 {
+            height: 0;padding-top: 28.64583333333%; 
+            /* padding의 크기도 부모의 width 값에 따라서! */
+            /* height: 550px; 28.64583333333%*/
+            /* 
+            1. 세로면적, height 사용 불가 => padding
+            2. 가로에 대한 세로 비율 
+                => 세로 방향에 width 기준 % 적용되는 속성 padding(margin, border)
+            3. 기준이 되는 width값은 부모 기준, 높이가 필요한 padding 값은 자손
+                padding 값은 부모의 width값에 대한 비율로 가져온다.
+            */
+            background: url(img/bg_cookieF.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            border: 5px solid #000;
+            position: relative;
+        }
+        .ra6 span {
+            position: absolute; left: 80px;top: 80px;
+            background: pink;
+        }
+        .ra7 {
+            width: 80%;margin: 100px auto;
+            display: flex; gap: 50px;
+            border: 2px solid #000;
+        }
+        .ra7 .box{
+            width: 50%; height: 0;
+            padding-top: 33.3203125%;
+            background: gold; 
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .ra7 .box span {
+            display: block; height: 0;
+            padding-top: 66.640625%;
+        }
+        .ra7 .dog {
+            background-image: url(img/puppy.jpg);
+        }
+        .ra7 .rabbit {
+            background-image: url(img/rabbit.jpg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="ra1">
+        닮은 추운 완성된다는 생을 하나의 싶은 강이 이름과, 사람들의 동산에 때에는 마른 지나가는 쪽 할 육체가 있다 빈 땅으로 때 위를 살았었다 지나가는 없이 불러주던 까닭입니다. 시각에 사막으로 흐르는 하지만 사랑했던 수 먼 계절이 하염없이 하나의 별 그리워 잠, 아기 죽고 옥, 향할 못한 추억도 청명한 자신을 북쪽에서 있다 별 같은 별 때 슬퍼하는 강이 별 않고서 나의 향할 오면 하나의 가시옵소서. 딴은 프랑시스 있다. 건너 내 향해 비로소 그때. 노새, 것이다​ 위에 그때. 눈물 유년의 밤의 알리라, 죽은 어머님, 싶은 우리를 노래, 노새, 강이 그리하여 하늘을 모두가 있든 망각의 했다.
+    </div>
+    <div class="ra2">
+        자손보다 부모의 높이가 높고 값이 변함
+    </div>
+    <div class="ra3"></div>
+    <div class="ra4">
+        <span>고양이</span>
+    </div>
+    <div class="ra5">
+        <span>여우</span>
+    </div>
+    <div class="ra6">
+        <span>메인비주얼 설명</span>
+    </div>
+    <div class="ra7">
+        <div class="box dog">
+            <span>강아지</span>
+        </div>
+        <div class="box rabbit">
+            <span>토끼</span>
+        </div>
+    </div>
+    
+</body>
+</html>

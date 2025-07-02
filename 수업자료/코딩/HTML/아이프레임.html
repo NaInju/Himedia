@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이프레임</title>
+
+    <style>
+        body {margin-bottom:  500px;}
+        a {color: inherit;text-decoration: none;}
+        .link_box {
+            display: flex;justify-content: center; 
+            gap: 20px;font-size: 20px;background: forestgreen;
+            color: #fff;
+        }
+        .link_box a {
+            display: flex;justify-content: center;align-items: center;
+            padding: 0 30px;height: 70px;
+        }
+        .link_box a:hover {
+            background: #fff; color: forestgreen;
+        }
+        .link_frame {
+            display: block;
+            width: 90%;height: 80vh;margin: 0 auto;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    원래 html 확장자를 가진 페이지에는 하나의 문서로 읽혀야 함
+    다른 웹문서를 현재 웹문서에서 보여주기 위한 태그
+    <iframe src="./단락태그.html"width= "500";></iframe>
+    iframe 태그의 frameborder 속성은 비표준임.
+    프레임 테두리는 css로 설정, IE(인터넷익스플로러)가 프레임 보더를 css로 설정이 안됨.
+    src에 파일 경로 작성.
+    <iframe width="858" height="483" src="https://www.youtube.com/embed/IYAHieM4iZE" title="옛날 게임들이 최적화가 지리는 이유" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="link_box">
+        <a href="../CSS/flex-연습.html" target="page_view">플렉스 박스</a>
+        <a href="http://nij.dothome.co.kr" target="page_view">닷홈</a>
+        <a href="https://www.pps.go.kr" target="page_view">조달청</a>
+        <a href=""></a>
+    </div>
+
+    <iframe src="./멀티미디어태그.html" class="link_frame"name="page_view"></iframe>
+
+
+    <iframe src="">대체 텍스트</iframe>
+    <!-- iframe 태그를 모르는 브라우저에서 보여질 대체 텍스트가 필요했기 때문에 종료 태그도 필요했음 -->
+     
+</body>
+</html>

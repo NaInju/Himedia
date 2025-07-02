@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전역변수와 지역변수</title>
+    <script>
+        // 전역 변수(Global) => 문서 전체, 모든 함수에서 사용 가능
+        // 전역 변수(Local) => 특정범위(함수 등) 안에서만 사용
+
+        let g1 = 100, g2; //전역 변수
+        console.log(g1);
+
+        function f1() {console.log(`g1 : ${g1}`);}
+        f1()
+        function f2() {
+            g2 = g1 * 2
+            return g2
+        }
+
+        console.log(`g2 : ${f2()}`);
+
+        function f3() {
+            let lo1 = 5;
+            return g1 + lo1
+        }
+
+        console.log(f3());
+        // console.log(lo1); ==> lo1 is not defined
+
+        //* 함수 내부에서만 유일하게 사용 => 지역
+        //* 누적 값이 아니고 초기화 되어야 되는 변수 => 지역 변수
+        //* 함수마다 다른 값의 변수지만, 이름을 똑같이 => 지역
+
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

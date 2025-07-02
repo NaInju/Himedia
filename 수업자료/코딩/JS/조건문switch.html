@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 switch</title>
+    <script>
+        // 조건문 switch()
+        /*
+            switch(비교할 값) {
+                case 값1 : '비교할 값이 값1과 같으면 실행할 문장';
+                case 값2 : '비교할 값이 값2과 같으면 실행할 문장';
+                ...
+                case 값n : '비교할 값이 값n과 같으면 실행할 문장';
+            }
+        */
+
+        // const weekName = ['sun','mon','tue','wed','thu','fri',sat];
+        let day = new Date().getDay() //요일
+        let today ;
+
+        console.log(day);
+
+        switch (day) {
+            case 0 : today = 'sun'; break;
+            case 1 : today = 'mon'; break;
+            case 2 : today = 'tue'; break;
+            case 3 : today = 'wed'; break;
+            case 4 : today = 'thu'; break;
+            case 5 : today = 'fri'; break;
+            case 6 : today = 'sat'; break;
+        }
+
+        console.log(today);
+
+        //12,1,2 => 겨울, 3~5 봄, 6~8 여름, 9~11 가을
+        let month = new Date().getMonth(); //5
+        let season;
+
+        switch(month + 1) { 
+            case 3 :
+            case 4 :
+            case 5 : season = 'Spring'; break;
+            case 6 : 
+            case 7 : 
+            case 8 : season = 'Summer'; break;
+            case 9 : 
+            case 10 :
+            case 11 : season = 'Fall'; break;
+            case 12 :
+            case 1 :
+            case 2 : season = 'Winter'; break;
+        }
+
+        console.log(`이번 달은 ${month + 1}월이고 계절은 ${season}입니다.`);
+
+        let weekend;
+        console.log(day);
+
+        switch(day) {
+            case 0 :
+            case 6 : weekend = '주말'; break;
+            case 1 :
+            case 2 :
+            case 3 :
+            case 4 :
+            case 5 : weekend = '평일'; break;
+        }
+        console.log(`${today}는 ${weekend}`);
+
+
+        const hour = new Date().getHours();
+        let ampm;
+        console.log(hour);
+
+        // day(비교값)가 case
+
+        // 현재 시간이 12보다 작으면 '오전'
+
+        switch (true) {
+            case ( hour < 12): ampm = 'AM'; break; 
+            case ( hour >= 12): ampm = 'PM'; break;
+        }
+
+        console.log(`지금은 ${ampm}입니다.`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

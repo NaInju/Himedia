@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 쿼리</title>
+
+    <!-- <style>
+        /* 브레이크 포인트, 분기점을 이용해 뷰포트에 맞는 css를 작성 */
+        body {background: gold;}
+
+        
+        /* 860 이하 */
+        @media screen and (max-width: 860px) {
+            body {background: coral;}
+        }
+
+        /* 뷰포트 가로 너비가 1280 이하 */
+        @media screen and (max-width: 1280px) and (min-width: 861px) {
+            body {background: lightblue;}
+        }
+
+    </style> -->
+
+    <style>
+        * {list-style: none;margin: 0;padding: 0;font: inherit;}
+        body{
+            margin-bottom: 500px;
+        }
+        button {
+            line-height: 1;background: none;border: none;
+        }
+
+        header {
+            background: pink;display: flex;
+            justify-content: space-between;align-items: center;
+            padding: 0 120px;height: 70px;
+        }
+        header h1 {font-size: 30px;}
+        header nav ul {display: flex;gap: 40px;font-size: 20px;}
+        header nav button {display: none;}
+
+        .ex1 {height: 100vh;background: #ededed;}
+        .ex1 .box {flex-grow: 1;}
+        .ex1 .b1 {background: palevioletred;}
+        .ex1 .b2 {background: forestgreen;}
+
+        .ex2 {padding: 120px 0}
+        .ex2 ul {
+            display: flex;width: 80%;margin: auto;
+            background: lightslategray;;gap: 30px;
+        }
+        .ex2 li {
+            width: 25%;height: 100px;border: 1px solid #ccc; 
+            background: lightblue;
+        }
+
+        @media screen and (max-width: 1440px) {
+            header nav ul {display: none;}
+            header nav button {display: block;}
+        }
+        
+        /* 1024 이하 */
+        @media screen and (max-width: 1024px) {
+            .ex1 {
+                padding: 0 80px;gap: 20px;
+                flex-direction: column;
+            }
+            .ex2 ul {flex-wrap: wrap;}
+            .ex2 li {width: calc(50%-30px);}
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>logo</h1>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Work</li>
+                <li>Service</li>
+                <li>Contact</li>
+            </ul>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+            </button>
+        </nav>
+    </header>
+    <section class="ex1">
+        <div class="box b1">left</div>
+        <div class="box b2">right</div>
+    </section>
+    <div class="ex2">
+        <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+        </ul>
+    </div>
+</body>
+</html>

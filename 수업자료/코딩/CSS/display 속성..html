@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display 속성</title>
+    <style>
+        h1 {
+            display: inline;
+            width: 300px; height:200px;
+            background: pink;
+        }
+        p {
+            display: inline-block;
+            height: 50px;
+            background: greenyellow;
+        }
+        div {
+            display: block;
+            /* display: none; => 원래 없던 것처럼, 음성브라우저가 읽지 않을 수 있음. */
+            /* visibility: hidden; => 면적이 사라지지 않음. */
+            width: 300px; 
+            height: 0; overflow: hidden;
+            /* height: 300px; 처음에 안보이고 이벤트 후에 300을 나중에 적용*/
+            background: dodgerblue;;
+        }
+        a {
+            display: block;
+            width: 300px; height: 200px;
+            background: gold;
+        }
+        strong {
+            display: block;
+            background: tomato;
+        }
+        em {
+            display: inline-block; height: 100px;
+            vertical-align: middle;
+            background: slateblue;
+        }
+        img {
+            width: 300px; height: 200px;
+            vertical-align: middle;
+            border: 1px solid #000;
+        }
+        input {
+            height: 150px;
+            vertical-align: middle;
+        }
+        button {
+            display: block;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Block - Heading1</h1>
+    <p>block - paragraph</p>
+    <div>Block - Divide</div>
+ 
+    <a href="#">Inline - Hyper Linker</a>
+    <strong> Inline - important </strong>
+    <em> inline-block </em>
+
+    <img src="img/starbucks.png" alt="starbucks">
+    <input inline-block ="text">
+    <button>inline-block</button>
+
+
+</body>
+</html>

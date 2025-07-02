@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리드 레이아웃</title>
+    <style>
+        /* 
+            부모요소가 grid container, 자손요소가 grid item
+            그리드 컨테이너(부모) =>  display: grid;
+
+            ** 플렉스 박스는 차원 방향 정렬(direction) => column or row
+            ** 그리드는 2차원 방향 정렬 (column & row 동시에)
+        */
+        body {margin: 700px 100px;}
+        strong {font-size: 60px;font-weight: bold;padding: 20px;line-height: 200px;}
+        section {
+            background: #dedede; padding: 100px 50px;
+        }
+        .container { padding: 10px;gap: 10px;}
+        .item {
+            background: gold;padding: 10px;font-size: 20px;
+            border: 1px dashed black;
+        }
+        .ex1 {}
+        .ex1 .container {
+            display: grid;
+            /* grid-template-columns: 100px 200px 300px; */
+            /* grid-template-rows: auto auto auto auto auto 200px; */
+            /* grid-template-columns: 2fr 1fr 1fr auto 200px; */
+            /* grid-template-columns: repeat(4, auto) 200px; */
+            background: #333;
+            /* grid-template-columns: 200px 200px 400px 400px; */
+            /* grid-template-columns: repeat(2, 200px) repeat(2, 400px); */
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-template-rows: 100px repeat(2, 1fr); */
+            /* grid-template-rows: 100px 200px 200px 100px 200px; */
+            grid-auto-rows: 150px;
+        }
+
+        .ex2 {
+            display: grid; grid-template-columns: 2fr repeat(2, 1fr);
+            background: #ededed; gap: 20px; padding: 200px;
+        }
+        .ex2 .card {
+            aspect-ratio: 1/1;
+            background: rgb(144, 183, 255); 
+            border-radius: 20px;padding: 50px;
+        } 
+        /* .ex2 .card:nth-child(1), .ex2 .card:nth-child(4) */
+        .ex2 .card:nth-child(3n+1) {aspect-ratio: 2/1;}
+        /* 
+            이번 경우 height는 어디에 설정하는 것이 좋을까 ? 
+            px로 고정 값을 주지 않고 비율 계산으로 => aspect-ratio
+            변하는 값을 줄 수가 없음.
+        */
+
+        .ex3 {}
+        .ex3 .container {
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 100px;
+            gap: 30px; background: #333;
+
+        }
+        .ex3 .i1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background: hotpink;
+        }
+        .ex3 .i2 {
+            grid-column: 3/5;
+            background: yellowgreen;
+        }
+        .ex3 .i3 {
+            grid-column: 1/span 3;;
+            background: dodgerblue;
+        }
+        .ex3 .i4 {
+            grid-row: 2/4;grid-column: 4/ 5;
+            background: orange;
+        }
+        .ex3 .i5 {
+            background: slateblue;
+            /* grid-column: 1/3;grid-row: 3/5; */
+            /* grid-area: row-start column-start row-end column-end; */
+            /* grid-area: 3 / 1 / 5 / 3 ; */
+            grid-area: 3 / 1 / span 2 / span 2;
+        }
+        .ex3 .i6 {
+            background: silver;
+            grid-column: 1 / 5;
+        }
+
+        .ex4 {padding: 100px 200px;}
+        .ex4 .container {
+            background: #2b2144;
+            padding: 50px;gap: 30px;
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 100px;
+        }
+        .ex4 .item {min-height: 100px; font-size: 30px;font-weight: bold;}
+        .ex4 .i1 {background: yellowgreen; grid-area: 1 / 1 / span 3 / auto;}
+        .ex4 .i2 {background: yellowgreen; grid-area: 1 / 2 / auto / span 2;}
+        .ex4 .i3 {background: tomato;}
+        .ex4 .i5 {background: tomato;}
+        .ex4 .i6 {background: yellowgreen; grid-area: 2 / 4 / span 2 / auto;}
+        .ex4 .i7 {background: tomato}
+
+        .ex5 {}
+        .ex5 .container {
+            background: #333;
+            padding: 30px;gap: 30px;
+            display: grid;
+            /* grid-template-columns: repeat(3, 1fr); */
+            grid-auto-rows: 100px;
+            grid-template-areas: 
+                'a b b .'
+                'a . . f'
+                'a . . f'
+            ;
+        }
+        .ex5 .item {font-size: 30px;font-weight: bold;}
+        .ex5 .i1 {background: tomato ;grid-area: a;}
+        .ex5 .i2 {background: yellowgreen ;grid-area: b;}
+        .ex5 .i3 {background: dodgerblue ;grid-area: f;}
+
+        .ex6 {
+            background: rgb(230, 242, 255);
+            display: grid; gap: 10px;
+            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-areas:
+                'hd hd hd'
+                'menu main side1'
+                'menu main side2'
+                'menu foot foot'
+            ;
+            /* 
+                grid-template-areas:
+                    'header header header'
+                    'menu main .'
+                    'menu main .'
+                    'menu foot foot'
+                ;
+            */
+        }
+        .ex6 > * {
+            display: flex; justify-content: center;align-items: center;
+            min-height: 100px;
+            background: powderblue;
+            font-size: 30px; font-weight: bold;
+        }
+        .ex6 header {background: pink;grid-area: hd;}
+        .ex6 nav {background: powderblue;grid-area: menu;}
+        .ex6 main {background: tomato;grid-area: main;}
+        .ex6 .side1 {background: yellowgreen;grid-area: side1;}
+        .ex6 .side2 {background: lemonchiffon;grid-area: side2;}
+        .ex6 footer {background: lavender;grid-area: foot;}
+
+        .ex7 {}
+        .ex7 .container {
+            background:#333;
+            display: grid;padding: 20px;height: 400px;
+            grid-template-columns: repeat(4, 150px);
+            /* row-gap: 50px; column-gap: 20px; */ gap: 50px 20px;
+            justify-content: space-evenly; align-content:start;
+            
+        }
+    </style>
+</head>
+<body>
+    <strong>ex1</strong>
+    <section class="ex1">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+            <div class="item i9">item9</div>
+            <div class="item i10">item10</div>
+        </div>
+    </section>
+
+    <strong>ex2</strong>
+    <section class="ex2">
+        <div class="card">program</div>
+        <div class="card">박사과정</div>
+        <div class="card">군학</div>
+        <div class="card">석사</div>
+        <div class="card">로고</div>
+        <div class="card">외국인</div>
+    </section>
+
+    <strong>ex3</strong>
+    <section class="ex3">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+            <div class="item i9">item9</div>
+            <div class="item i10">item10</div>
+        </div>
+    </section>
+
+    <strong>ex4</strong>
+    <section class="ex4">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+        </div>
+    </section>
+
+    <strong>ex5</strong>
+    <section class="ex5">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+        </div>
+    </section>
+
+    <strong>ex6</strong>
+    <section class="ex6">
+        <header>header</header>
+        <nav>menu</nav>
+        <main>main</main>
+        <aside class="side1">side1</aside>
+        <aside class="side2">side2</aside>
+        <footer>footer</footer>
+    </section>
+
+    <strong>ex7</strong>
+    <secton class="ex7">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+        </div>
+    </secton>
+</body>
+</html>

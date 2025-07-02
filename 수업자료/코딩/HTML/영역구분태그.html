@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역구분태그</title>
+</head>
+<body>
+    <h1>영역을 구분하는 태그</h1>
+    <dl>
+        <dt>div</dt>
+        <dd>
+            <p>divide (Block)</p>
+            <p>의미 없이 단순히 물리적 공간으로 구분</p>
+            <p>태그 요소들을 나누거나 그룹할 때</p>
+            <p></p>
+        </dd>
+        <dt>header</dt>
+        <dd>
+            <p>문서 또는 섹션의 머리글 영역</p>
+            <p>문서의 로고(CI), 검색, gnb 등을 포함하는 영역</p>
+            <p>header 태그는 다른 header, footer, nav 등의 태그에 자손요소도 부모 요소도 될 수 없다. <br> header, footer 등의 시멘틱(의미) 때문
+            </p>
+        </dd>
+        <dt>footer</dt>
+        <dd>
+            <p>문서 또는 섹션(일부 구역)의 바닥글 영역</p>
+            <p>저작권, 소유자(저작자) 연락처, 패밀리 사이트, sns 등을 포함하는 영역</p>
+        </dd>
+        <dt>main</dt>
+        <dd>
+            <p>문서 전체에서 가장 중요한 컨텐츠</p>
+            <p>페이지에서 한번만 사용</p>
+            <p></p>
+        </dd>
+        <dt>section</dt>
+        <dd>
+            <p>문서의 주제별 컨텐츠 그룹</p>
+            <p>제목(h2~h6) 태그 사용 권장(필히)</p>
+            <p>문서 전체에서 하위 주제별로 나눌 때</p>
+        </dd>
+        <dt>article</dt>
+        <dd>
+            <p>문서의 다른 영역과 관계없이(독립적) 재배포가 가능한 영역</p>
+            <p>블로그의 게시글 하나, 뉴스 기사</p>
+            <p></p>
+        </dd>
+        <dt>aside</dt>
+        <dd>
+            <p>문서의 주요 주제와 직접적인 관련이 없는 영역</p>
+        </dd>
+        <!-- (dt+dd>p*2)*2 -->
+        <dt>nav</dt>
+        <dd>
+            <p>네비게이션 링크를 포함하는 영역</p>
+            <p>링크와 구분할 것 ⇒ 이동 경로가 포함된 링크가 네비게이션</p>
+        </dd>
+        <dt>hgroup</dt>
+        <dd>
+            <p>제목(h2~h6)태그와 하나 이상의 p 태그</p>
+            <p>제목(주제)의 내용이 아닌, 제목을 설명하는 p태그를 hn 태그와 그룹</p>
+        </dd>
+    </dl>
+</body>
+</html>

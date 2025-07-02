@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리드 레이아웃 과제</title>
+    <style>
+        li { list-style: none;}
+        /* 
+        .hw .container {
+            background: #333; padding: 10px;
+            display: grid; gap: 10px;
+            grid-template-columns: repeat(4,1fr);
+            grid-auto-rows: auto;
+        }
+        .hw .item { 
+            min-height: 100px;
+            background: #dedede; border: 1px solid blue;
+            font-size: 24px;display: flex;
+            justify-content: center;align-items: center;
+        }
+        .hw .i1 {background: tomato;grid-area: 1 / 1 / span 2 / auto ; height: 150px;width: 20vw;}
+        .hw .i2 {background: aquamarine; width: 30vw;}
+        .hw .i3 {background: bisque;grid-area: 1 / 3 / 1 / span 2 ;width: 40vw;}
+        .hw .i4 {background: bisque;}
+        .hw .i6 {background: tomato;grid-area: 2 / 4 / span 2 / span 1 ;}
+        .hw .i7 {grid-area: 3 / 1 / span 2 / 2 ;height: 150px;width: 20vw;}
+        .hw .i8 {background: tomato;}
+        .hw .i9 {background: aquamarine;} 
+        */
+        
+        .hw .container {
+            background: #333; gap: 10px;padding: 10px;
+            display: grid;
+            grid-template-areas: 
+                'n1 . n3 n3'
+                'n1 . . n6'
+                'n7 . . n6'
+            ;
+            grid-auto-rows: 100px;
+            grid-auto-flow: dense;
+        }
+        .hw .item {
+            background: azure; border: 1px dashed blue; object-fit: fill;
+            display: flex;
+            justify-content: center; align-items: center;
+        }
+        .hw .i1 {background: tomato;grid-area: n1;height: 150px;}
+        .hw .i2 {background: aquamarine;}
+        .hw .i3 {background: bisque;grid-area: n3;}
+        .hw .i4 {background: bisque;}
+        .hw .i6 {background: tomato;grid-area: n6;}
+        .hw .i7 {grid-area: n7;}
+        .hw .i8 {background: tomato;}
+        .hw .i9 {background: aquamarine;}
+
+    </style>
+</head>
+<body>
+    <section class="hw">
+        <div class="container">
+            <div class="item i1">item1</div>
+            <div class="item i2">item2</div>
+            <div class="item i3">item3</div>
+            <div class="item i4">item4</div>
+            <div class="item i5">item5</div>
+            <div class="item i6">item6</div>
+            <div class="item i7">item7</div>
+            <div class="item i8">item8</div>
+            <div class="item i9">item9</div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollTrigger2</title>
+
+    <!-- Styles -->
+    <style>
+        body {margin: 0;padding-bottom: 100vh;}
+        section {
+            height: 100vh;display: flex;align-items: center;
+            position: relative;justify-content: center;
+        }
+        section strong {
+            position: absolute;left: 30px;top: 30px;
+            font-size: 50px;font-weight: bold;color: #999;
+            font-family: "Arial Black";
+        }
+
+        .ex1 .box {width: 100%;border: 1px dashed black;}
+        .ex1 p {
+            font-size: 80px;font-weight: bold;
+            text-align: center;margin: 0;
+        }
+        .ex1 p:nth-child(even) {background: pink;}
+
+        .ex2 {background: #dedede;}
+        .ex2 .box {
+            width: 100vw;height: 100vh;
+            background: url(../../img/snowman.jpeg)
+            center / 100% auto ;
+        }
+
+        .ex3 {background: #ffeded;display: block;}
+        .ex3 .inner-wrap {
+            border: 1px solid black;
+            width: 1600px;height: 100%;margin: auto;
+            display: flex;align-items: center;
+        }
+        .ex3 .box {
+            width: 475px;aspect-ratio: 1 / 1;
+            border-radius: 50%;border: 1px solid blue;
+            position: relative;margin-left: -100px;flex-shrink: 0;
+        }
+        .ex3 .b1 {z-index: 4;margin-left: 0;}
+        .ex3 .b1::before {
+            content: "";
+            width: calc(100%/2);height: 100%;
+            position: absolute;left: 50%;transform: translateX(-50%);
+            background: linear-gradient(to right, yellow, gold);
+            border-radius: calc(100%/4);
+        }
+        .ex3 .b1::after {
+            content: "";
+            width: 100%;height: calc(100%/2);
+            position: absolute;top: 50%;transform: translateY(-50%);
+            background: linear-gradient(to right, yellow, gold);
+            border-radius: calc(100%/3);
+        }
+        .ex3 .b2 {
+            background: orangered;z-index: 4;
+        }
+        .ex3 .b3 {background: linear-gradient(to right,greenyellow,aqua);z-index: 3;}
+        .ex3 .b4 {background: navy;z-index: 2;}
+        .ex3 .box span {
+            position: relative;z-index: 1;
+            font-size: 30px;height: 100%;
+            display: flex;justify-content: center;align-items: center;
+        }
+
+        .ex4 {display: block;padding: 150px 250px;background: bisque;}
+        .ex4 .inner{position: relative;}
+        .ex4 .box {
+            position: absolute;left: 0;top: 0;
+            width: 100%; aspect-ratio: 2 / 1;
+            border-radius: 20px;overflow: hidden;}
+        .ex4 .box img {width: 100%;height: 100%;object-fit: cover;}
+        .ex4 .b1 {margin-top: 0;}
+        .ex4 .b2 {margin-top: 100px;}
+        .ex4 .b3 {margin-top: 200px;}
+        .ex4 .b4 {margin-top: 300px;}
+
+        .ex5 .box {
+            width: 200px;height: 200px;
+            background: slateblue;
+        }
+
+    </style>
+
+    <!-- Java Script -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        // window.onload = function() {}
+        window.addEventListener('load', () => {
+            /* 01 */ 
+            const ex1 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.ex1',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true, //pin: true,
+                    markers: true,
+                }
+            });
+            ex1
+                .from('.ex1 .txt1',{xPercent: -100}, 1)
+                .from('.ex1 .txt2',{xPercent: 100}, 2)
+                .from('.ex1 .txt3',{xPercent: -100}, 1)
+                .from('.ex1 .txt4',{xPercent: 100}, 1)
+
+
+            /* 02 */ 
+            const ex2 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.ex2',
+                    scrub: true, pin: true,
+                }
+            });
+            ex2
+                .from('.ex2 .box', {width: 0, height: 0})
+                .to('.ex2 .box', {autoAlpha: 0})
+
+            /* 03 */
+            const ex3 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.ex3',
+                    markers: true,
+                    scrub: true, pin: true,
+                }
+            });
+            ex3
+                .from('.ex3 .b1',{x: 2000,autoAlpha:0,duration: 0.5})
+                .from('.ex3 .b2', {x:-1000,autoAlpha:0,duration: 0.5})
+                .from('.ex3 .b3', {x:-2000,autoAlpha:0,duration: 0.5})
+                .from('.ex3 .b4', {x:-2000,autoAlpha:0,duration: 0.5})
+
+            
+            /* 04 */
+            const ex4 = gsap.timeline()
+            ScrollTrigger.create({
+                trigger: '.ex4',
+                animation: '.ex4',
+                pin: true, scrub: true,
+                //markers: true,
+            }) 
+            ex4.form('.ex4 .b1', {scaleX:1.4})
+                .form('.ex4 .b2', {scaleX:1.4, yPercent:100})
+                .form('.ex4 .b3', {scaleX:1.4, yPercent:100})
+                .form('.ex4 .b4', {scaleX:1.4, yPercent:100})
+
+            /* 05 */
+            gsap.to('.ex5 .box', {
+                rotate:360,
+                scrollTrigger: {
+                    trigger: '.ex5 .box',
+                    start: 'top 60%',
+                    end: 'bottom',
+                    //toggleactions: '', => 애니메이션 설정
+                    onEnter: function() {
+                        //별도의 행동
+                        console.log('트리거 영역 진입')
+                    },
+                    onLeave: function() {
+                        console.log('섹션 완료');
+                    },
+                    onEnterBack: function() {
+                        console.log('Welcome Back');
+                    },
+                    onLeaveBack: function() {
+                        console.log('재진입');
+                    },
+                    markers: true
+                }
+            })
+
+        }) //load Event
+    </script>
+
+</head>
+<body>
+    <div id="wrap">
+        <section class="ex1">
+            <div class="box">
+                <p class="txt1">Java Script</p>
+                <p class="txt2">Library</p>
+                <p class="txt3">GSAP</p>
+                <p class="txt4">Scroll Trigger</p>
+            </div>
+            <strong>01</strong>
+        </section>
+        <section class="ex2">
+            <div class="box"></div>
+            <strong>02</strong>
+        </section>
+        <section class="ex3">
+            <strong>03</strong>
+            <div class="inner-wrap">
+                <div class="box b1"><span>Box-1</span></div>
+                <div class="box b2"><span>Box-2</span></div>
+                <div class="box b3"><span>Box-3</span></div>
+                <div class="box b4"><span>Box-4</span></div>
+            </div>
+        </section>
+        <section class="ex4">
+            <div class="inner">
+                <div class="box b1"><img src="../../img/fox.jpg" alt=""></div>
+                <div class="box b2"><img src="../../img/rabbit.jpg" alt=""></div>
+                <div class="box b3"><img src="../../img/zebra.jpg" alt=""></div>
+                <div class="box b4"><img src="../../img/tiger.jpg" alt=""></div>
+            </div>
+            <strong>04</strong>
+        </section>
+        <section class="ex5">
+            <div class="box">객체 메소드()</div>
+        </section>
+    </div>
+</body>
+</html>

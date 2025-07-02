@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollTrigger3</title>
+    <!-- CSS -->
+     <style>
+        body {margin: 0;padding-bottom: 100vh;}
+        #visual {
+            height: 100vh;
+            background: url(../../img/bg2.jpg) center / 100% auto;
+        }
+        #visual::before {
+            content: "";
+            position: absolute;left: 0;right: 0;bottom: 0;top: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #wrap section {
+            height: 100vh;
+            font-size: 100px;text-align: center;
+            box-sizing: border-box;padding-top: 100px;
+        }
+        #wrap section:nth-child(1) {background: pink;}
+        #wrap section:nth-child(2) {background: yellowgreen;}
+        #wrap section:nth-child(3) {background: slateblue;}
+        #wrap section:nth-child(4) {background: dodgerblue;}
+
+        /*** 스크롤 트리거 사용 */
+        .sticky {display: flex;padding-bottom: 200px; border: 2px solid red;}
+        .sticky .pin-content {
+            position: sticky;top: 0;
+            width: 50%;height: 100vh;padding-top: 200px;
+            background: yellowgreen;text-align: center;
+            box-sizing: border-box;
+            color: #fff;font-size: 100px;
+        }
+        .sticky .scroll-box {width: 50%;}
+        .sticky .scroll-box ul {
+            list-style-type: none;margin: 0;padding: 0;
+            display: flex;flex-wrap: wrap;padding: 30px;gap: 30px;        
+        }
+        .sticky .scroll-box li {
+            width: calc(50% - 15px);min-height: 500px;border-radius: 20px;
+            background: gold;text-align: center;line-height: 3em;font-size: 60px;
+        }
+        .sticky .scroll-box li:nth-child(2n) { 
+            transform: translateY(200px);
+        }
+
+     </style>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+     <script>
+        window.addEventListener('load',function(){ 
+            // section => parallax 효과
+            const sections = gsap.utils.toArray('#wrap section'); // => Node List 형태의 유사배열을 배열로 변환
+
+            sections.forEach(section => { //.array는 필요없음. 이미 위에 구문에서 array로 만들어서 중복됨.
+                gsap.from(section, {
+                    y: 100, //기본 단위는 px, 퍼센트 쓰고 싶을땐 붙이면 됨.
+                    opacity: 0,duration: 0.5,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 70%',
+                    }
+
+                })
+            })
+
+
+            /*
+                gsap.from('.sec1', {
+                    y:100, opacity:0,
+                    scrollTrigger: {
+                        trigger: '.sec1',
+                        start: 'top 70%',
+                        markers: true,
+                    }
+                })
+            */
+            
+            const sHeight = document.querySelector('.sticky').clientHeight;
+            console.log(sHeight); //=>2880
+
+            /*
+                gsap.to('.pin-content', {
+                    background: 'tomato',
+                    scrollTrigger: {
+                        trigger: '.pin-content',
+                        //start: 'top top', pin 꽂으면 이게 디폴트인듯
+                        end: `+=${sHeight} bottom`, //sticky에서 end값에 이런 꼴은 별로 좋지 않음. 다만 내가 모르는 값은 이런식으로 받아오면 된다.
+                        pin: true,
+                        markers: true,
+                    }
+                })
+            */
+
+            
+
+        //load
+        })
+     </script>
+    
+</head>
+<body>
+    <div id="visual"></div>
+    <div id="wrap">
+        <section class="sec1">Section 1</section>
+        <section class="sec2">Section 2</section>
+        <section class="sec3">Section 3</section>
+        <section class="sec4">Section 4</section>
+    </div>
+    <section class="sticky">
+        <div class="pin-content">I'm Pinned</div>
+        <div class="scroll-box">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>

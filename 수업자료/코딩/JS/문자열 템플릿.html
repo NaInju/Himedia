@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 템플릿(Templete String)</title>
+    <script>
+        // ` (백틱) 기호를 이용
+        // `` 안에서는 줄바꿈이 가능
+        // ${} => 숫자, 변수, 함수 등등 작성
+
+        let a, b, c, d, e;
+        
+        a = 'hello';
+        console.log(a);
+
+        b = 'World';
+
+        console.log(b);
+        console.log(a, b);
+
+        c = 'My name is "John Doe"';
+        d = "My name is 'John Doe'";
+        console.log(c);
+
+        let userName = `John Doe`
+
+        console.log(a + ' Mr. ' + userName);
+
+        let birthYear = 2009;
+        let nowYear = 2025;
+
+        console.log(userName + '님의 나이는 ' + (nowYear-birthYear) + '세입니다.');
+        //John Doe님의 나이는 16세 입니다.
+
+        console.log(`${userName}님의 나이는 ${nowYear-birthYear}세입니다.`);
+
+        let nowMonth = 6;
+        let nowDate = 10;
+
+        console.log(`${nowYear}년 ${nowMonth}월 ${nowDate}일`);
+        //2025년 6월 10일
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

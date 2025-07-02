@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹폰트사용하기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: "park dahyun";
+            /* 폰트파일과 연결할 폰트이름 */
+            src: url(fonts/parkfont.ttf);
+            /* src: 폰트파일의 위치 */
+       
+        }
+        @font-face {
+            font-family: "Marker";
+            src: url(fonts/Black\ Marker_personal\ use.ttf);
+        }
+        @font-face {
+            font-family: 'CookieRun-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1 {
+            font-family: '박다현체';
+        }
+        h2 {
+            font-family: '박다현체';
+        }
+        p {
+            font-family: 'Marker';
+            font-size: 30px;
+        }
+        .t2 {
+            font-family: 'CookieRun-Regular';
+        }
+        .t3 {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+        }
+        .t4 {
+            font-family: "Black Han Sans", sans-serif;
+            font-weight: 400;
+            font-size: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>글꼴 사용하기</h1>
+    <h2>박다현체(parkfont,1234)</h2>
+    <p class="t1">Free Fonts : ABCDEFG</p>
+    <p class="t2">쿠키런 폰트 : CDN(Content Delivery Network) 방식</p>
+    <p class="t3">구글 폰트</p>
+    <p class="t4">블랙 한스 산스</p>
+</body>
+</html>

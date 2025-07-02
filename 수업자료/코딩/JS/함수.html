@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <script>
+        //** 사용자 정의 함수
+        //function 키워드를 사용
+        // 1. 함수 이름 뒤에 ()
+        // 2. function f1() {} => {} 안에 실행문
+        // 3. 함수는 호출을 받아야 실행된다.
+
+        function f1() {
+            console.log('함수가 실행되었나요?');
+        }
+
+        function f2() {
+            return 'Hi!!'
+        }
+
+        document.write(f2() + '<br>');
+        console.log(`f2() 호출: ${f2()}`);
+
+        // 2배로 만들어 주는 함수
+        function f3(a) { //a는 매개변수(parameter, 인자)
+            return a * 2
+        }
+
+        console.log(`f3() 호출 : ${f3(500)}`);
+        
+        function f4(b, c) {
+            // 매개 변수로 받은 2개 값을 곱해서 반환
+            result = b * c;
+            return result
+            //return b * c
+        }
+        console.log(`f4() : ${f4(10,14)}`);
+        console.log(`f4() : ${f4(7,21)}`);
+        
+
+        // 인치를 센티로 바꾸는 함수 => 1inch == 2.54cm
+        let inch = 5;
+
+        function cm(i) {
+            return i * 2.54
+        }
+
+        console.log(`${inch}inch는 ${cm(inch)}cm이다.`);
+    
+        // 달러를 한화로 바꾸는 함수 1달러 == 1,365.90원
+        let usd;
+        function krw(d) {
+            return d * 1365.90
+        }
+        usd = 5
+        console.log(`환율에 따라 현재 ${usd}달러는 ${krw(usd)}원입니다.`);
+
+
+        let country = 1 //prompt('나라를 선택 1.미국, 2.유럽, 3.일본')
+        let amount = 1
+
+        function krw2(ctr,amt) {
+            // 달러는 1365.90원, 유로는 1572.77원, 엔화는 948.51원
+            let res, exc;
+
+            switch(ctr) {
+                case '1' :
+                    res = `미국 ${amt}달러` ; exc = 1365.90; break;
+                case '2' :
+                    res = `유럽연합 ${amt}유로` ; exc = 1572.77; break;
+                case '3' :
+                    res = `일본 ${amt}엔화` ; exc = 948.51; break; 
+                //default : window.alert('보기 중에 고르세요.')
+            }
+
+            return `${res}는 한화 ${exc*amt}원 입니다.`
+
+        }
+
+        console.log(krw2(country, amount));
+        console.log();
+
+        // ** 화살표 함수
+        //function f5() {}
+        //const f5 = () => {//실행문}
+
+        const f5 = ()=> {console.log('arrow function');}
+        
+        f5();
+
+        function f6(a,b) {
+            return (a + b)
+        }
+        console.log(f6(5));
+
+        let a = 0;
+        const f7 = a = a*2
+        console.log(f7(6));
+
+        const f8 = (a, b) => {
+            n = a +b;
+            return n;
+        }
+
+        console.log(f8(66, 40));
+
+
+        // 화살표 함수를 이용해 제곱근 구하는 함수
+
+        const expon = (a,b) => {
+
+        } // 중괄호 생략시 화살표도 생략
+        console.log(`3**2 : ${expon(3, 2)}`);
+
+        /***화살표 함수와 function 함수(***/
+        /*
+            1. Hoisting
+            => function 함수()는 가능
+            => 화살표 함수는 불가
+            ** function은 호이스팅 때문에 아래 선언해도 무방
+            ** 화살표 함수는 호이스팅이 안되기 때문에 실행문보다 위쪽에 선언해야 한다.
+
+            2. this 키워드
+            
+        */
+    </script>
+</head>
+<body>
+    <button onclick="f1()">f1() 호출</button>
+
+    <hr>
+    <div class="ex1">
+        <p>언어를 선택</p>
+        <button onclick="greet('kor')">KOR</button>
+        <button onclick="greet('eng')">ENG</button>
+    </div>
+
+
+    <style>
+        .ex2 .color-box {
+            display: flex;justify-content: center;align-items: center;
+            width: 500px;height: 300px;
+            border: 1px solid black;font-weight: bold;
+            color: #fff; 
+            margin: 20px 0;
+        }
+    </style>
+    <div class="ex2">
+        <div class="color-box">color</div>
+        <button onclick="chgColor('red')">red</button>
+        <button onclick="chgColor('dodgerblue')">dodgerblue</button>
+        <button onclick="chgColor('orange')">orange</button>
+        <button onclick="chgColor('yellowgreen')">yellowgreen</button>
+        <button onclick="chgColor('slateblue')">slateblue</button>
+    </div>
+
+    <style>
+        .ex3 .img-box {width: 500px;height: 400px;}
+        .ex3 .img-box {width: 100%;height: 100%;object-fit: cover;}
+    </style>
+    <div class="ex3">
+        <div class="img-box">
+            <img src="img/cat.jpg" alt="">
+        </div>
+        <button onclick="chgImg('cat')">고양이</button>
+        <button onclick="chgImg('zebra')">얼룩말</button>
+        <button onclick="chgImg('otter')">수달</button>
+        <button onclick="chgImg('rabbit')">토끼</button>
+    </div>
+
+    <div class="ex4">
+        <button>추가</button>
+        <ul></ul>
+    </div>
+
+    <script>
+        //** ex1
+
+        const ex1 = document.querySelector('.ex1 p')
+        // ex1.innerHTML = '안녕'
+
+        // greet() 함수에 매개변수의 값이 kor 이면 안녕하세요. eng면 Hello가 ex1 출력
+
+        function greet(lang) {
+            let greeting;
+            /*
+            if ( lang == 'kor' ) { greeting = '안녕하세요' }
+            else { greeting = 'Hello' }
+            */
+            
+            switch(lang) {
+                case 'kor' : greeting = '안녕하세요'; break;
+                case 'eng' : greeting = 'Hello'; break;
+            }
+
+            ex1.innerHTML = greeting
+        }
+
+
+        //** ex2
+
+        //document.querySelector('.ex2 .color-box').style.background = 'pink'
+
+        const ex2 = document.querySelector('.ex2 .color-box');
+        ex2.style.background = 'pink';
+
+        function chgColor(c) {
+            /*
+            switch (c) { // 텍스트 컬러 바꾸기
+                case 'red' : document.querySelector('.ex2 .color-box').style.color = 'red'; break;
+                case 'dodgerblue' :  document.querySelector('.ex2 .color-box').style.color = 'dodgerblue'; break;
+                case 'orange' :  document.querySelector('.ex2 .color-box').style.color = 'orange'; break;
+                case 'yellowgreen' :  document.querySelector('.ex2 .color-box').style.color = 'yellowgreen'; break;
+                case 'slateblue' :  document.querySelector('.ex2 .color-box').style.color = 'slateblue'; break;
+            } */
+
+            /*
+            switch (c) { // 배경 컬러 바꾸기
+                case 'red' : document.querySelector('.ex2 .color-box').style.background = 'red'; break;
+                case 'dodgerblue' :  document.querySelector('.ex2 .color-box').style.background = 'dodgerblue'; break;
+                case 'orange' :  document.querySelector('.ex2 .color-box').style.background = 'orange'; break;
+                case 'yellowgreen' :  document.querySelector('.ex2 .color-box').style.background = 'yellowgreen'; break;
+                case 'slateblue' :  document.querySelector('.ex2 .color-box').style.background = 'slateblue'; break;
+            } */
+
+            ex2.innerHTML = c;
+            ex2.style.background = c;
+        }
+
+
+        //** ex3 => 과제
+
+        const fruits = ['apple', 'mango', 'banana', 'kiwi', 'cherry', 'melon','lemon', 'orange', 'grape', 'strawberry', 'lime'];
+
+        const btnEx4 = document.querySelector('.ex4 button');
+        const ulEx4 = document.querySelector('.ex4 ul');
+        
+        //ulEx4. innerHTML = '<strong></strong>'
+
+        let fIndex= 0;
+        btnEx4.addEventListener('click', () => {
+            // 배열의 마지막 10번까지 출력되고 나면 경고창, 숫자 증가 멈춤
+
+            if(fIndex < fruits.length) {
+                ulEx4.innerHTML += `<i>${fruits[fIndex]}</i>`
+                fIndex++;
+            } else {
+                window.alert("Stop!");
+            }
+        });
+
+        a= 1;
+        a= a+1;
+
+        ulEx4.innerHTML = ulEx4.innerHTML +`<i>${fruits[fIndex]}</i>`;
+
+    </script>
+
+</body>
+</html>

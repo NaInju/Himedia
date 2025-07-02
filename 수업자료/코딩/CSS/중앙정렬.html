@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중앙정렬</title>
+    <style>
+        h1 {
+            background: pink;
+            text-align: center; 
+            /* 면적에서 텍스트의 가로방향 정렬만 */
+        }
+        h2 {
+            background: gold; 
+            width: 1024px; height: 300px;
+            margin: 0 auto;
+            /* width를 제외한 나머지 공간을 좌우 margin으로 처리 */
+            display: flex; justify-content: center; align-items: center;
+            /* 플렉스 아이템, 자손, 텍스트 정렬 */
+        }
+        .ex1 {
+            position: relative;
+            width: 80%;height: 500px;
+            padding: 100px; margin: 100px auto;
+            background: url(img/grid.gif);
+            border: 1px solid red;
+            
+        }
+        .ex1 .box{
+            width: 400px; height: 200px;
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>중앙 정렬</h1>
+    <h2>텍스트정렬도 세로 정렬은 display:flex 사용</h2>
+    <div class="ex1">
+        <div class="box">position center</div>
+    </div>
+</body>
+</html>

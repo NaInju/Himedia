@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <style>
+        section {padding: 50px 0;}
+        .box1 {
+            width: 150px;height: 100px;
+            background: yellowgreen; font-size: 30px;
+            animation-name: ex1; animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        /* keyframe rule*/
+        @keyframes ex1 {
+            from {background: dodgerblue}
+            to {background: hotpink}
+        }
+        .box2 {
+            width: 150px;height: 100px;
+            background: yellowgreen; font-size: 30px;
+            animation-name: ex2; animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ex2 {
+            0% {background: dodgerblue;}
+            50% {background: orange;}
+            100% {background: hotpink;}
+        }
+        .box3 {
+            display: flex; justify-content: center;
+            align-items: center;
+            width: 200px;height: 200px;color: #fff;
+            font-size: 30px; background: tomato;
+            animation: ex3 2s;
+            animation-iteration-count: infinite;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode */
+        }
+        @keyframes ex3 {
+            /* 0% {border-radius: 0;} */
+            50% {border-radius: 50%;}
+            /* 100% {border-radius: 0;} */
+        }
+        .box4 {
+            padding: 30px;width: 150px;
+            background: teal;color: #fff;
+            font-size: 30px; font-weight: bold;
+            animation: ex4 4s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ex4 {
+            0% {transform: translateX(0);}
+            25% {transform: translateX(300px)}
+            50% {}
+            75% {transform: translateX(300px);}
+            100% {transform: translateX(0);}
+        }
+        .box5 {
+            padding: 30px;width: 150px;
+            background: darkmagenta;color: #fff;
+            font-size: 30px; font-weight: bold;
+            animation: ex5 3s;
+            animation-iteration-count: infinite;
+        }
+        /* @keyframes ex5 {
+            0%{
+                width: 100px;height: 30px;
+                margin-left: 0;
+            }
+            33%{
+                width: 300px;height: 200px;
+                margin-left: 0;
+            }
+            66%{
+                width: 300px;height: 200px;
+                margin-left: 300px;
+            }
+            100%{
+                width: 100px;height: 30px;
+                margin-left: 0;
+            }
+        } */
+        .box6 {
+            width: 100px;height: 60px;background: orange;
+            font-size: 30px; font-weight: bold;
+            animation: ex6 4s;
+            animation-iteration-count: infinite;
+        }
+        /* 
+        1s => 오른쪽 300 이동
+        2s => 가로 크기 300, 배경색 변경, 글자 크기 2배
+        3s => 제자리 멈춤
+        4s => 초기값
+        */
+        @keyframes ex6 {
+            0%{}
+            25%{
+                width: 100px;height: 60px;background: orange;
+                font-size: 30px;
+                transform: translateX(300px);
+            }
+            50%{width: 300px;background: teal;font-size: 60px;}
+            75%{
+                width: 300px;background: teal;font-size: 60px;
+                transform: translateX(300px);
+            }
+            100%{
+                width: 100px;height: 60px;background: orange;
+                font-size: 30px;
+            }
+        }
+        .box7 {
+            width: 100px;height: 60px;background: yellowgreen;
+            font-size: 30px; font-weight: bold; border-radius: 10%;
+            animation: ex7 4s; color: #fff;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes ex7 {
+            0%{}
+            25%{
+                background: aquamarine; 
+                transform: rotate(30deg);
+            }
+            50%{transform: translateX(500px);background: aqua; }
+            75%{transform: translateX(500px);background: aqua;}
+            
+            100%{
+                transform: translateX(0) rotate(-360deg);
+                /* transform을 두번 쓰면 안됨 띄어쓰기로 이어쓰고, 뭘 먼저쓰느냐가 중요 */
+            }
+        }
+        .box8, .t1, .t2, .t3, .t4 {
+            width: 130px;padding: 2px;
+            background: dodgerblue;
+            animation-name: ex8;
+            animation-duration: 3s;
+            /* 애니메이션 진행시간 */
+            animation-delay: 1s;
+            /* 애니메이션 시작지연 시간 */
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forward;
+            /* 마지막 키프레임 설정에서 멈춤 */
+            animation-iteration-count: infinite;
+        }
+        @keyframes ex8 {
+            0% {}
+            100%{margin-left:600px;}
+
+        }
+        .t1 {animation-timing-function: linear;}
+        .t2 {animation-timing-function: ease-in;}
+        .t3 {animation-timing-function: ease-out;}
+        .t4 {animation-timing-function: cubic-bezier(.06,.93,.98,.07);}
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box1">box1</div>
+    </section>
+    <section>
+        <div class="box2">box2</div>
+    </section>
+    <section>
+        <div class="box3">box3</div>
+    </section>
+    <section>
+        <div class="box4">box4</div>
+    </section>
+    <section>
+        <div class="box5">box5</div>
+    </section>
+    <section>
+        <div class="box6">box6</div>
+    </section>
+    <section>
+        <div class="box7">box7</div>
+    </section>
+    <section>
+        <div class="box8">box8</div>
+    </section>
+    <section>
+        <div class="t1">Linear(등속)</div>
+    </section>
+    <section>
+        <div class="t2">ease in(가속)</div>
+    </section>
+    <section>
+        <div class="t3">ease out(감속)</div>
+    </section>
+    <section>
+        <div class="t4">(베지어)</div>
+    </section>
+    <section>
+        <div class="box9">box9</div>
+    </section>
+    <section>
+        <div class="box10">box10</div>
+    </section>
+</body>
+</html>

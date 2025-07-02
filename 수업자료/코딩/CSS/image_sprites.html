@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image_Sprites</title>
+    <style>
+        body {
+            margin: 500px 0;
+        }
+        ul, li {
+            list-style: none;margin: 0;padding: 0;
+        }
+        .logo1 {
+            height: 134px; width: 376px;
+            background-image: url(img/google.png);
+            text-indent: -9999px;
+            border: 1px solid black;
+        }
+        .logo2 {
+            width: 225px;height: 225px;
+            background: url(img/starbucks.png);
+        }
+        .blind {
+            /* span 은 인라인 태그임을 잊지 말자 */
+            display: block;
+            width: 1px;height: 1px;
+            overflow: hidden;
+        } 
+        .spr1 {
+            width: 44px; height: 57px;
+            background-image: url(img/sprite.png);
+            background-position: -410px -163px;
+        }
+        .spr2 {
+            width: 82px;height: 82px;
+            background-image: url(img/sprite.png);
+            background-position: -214px -152px;
+        }
+        .spr3 {
+           display: flex; gap: 20px;
+           border: 1px dashed red;
+           margin: 20px;
+        }
+        .spr3 li {border: 1px dotted blue;}
+
+        .spr3 a {
+            display: block;
+            width: 121px; height: 121px;
+            background-image: url(img/ico_sns.png);
+            border: 1px solid black;
+        }
+        .sp3 span {border: 1px solid black;}
+        .spr3 li:hover {transform:scale(1.15);}
+
+        .spr3 li:nth-child(1) a {background-position: 0 0;}
+        .spr3 li:nth-child(2) a {background-position: -128px 0;}
+        .spr3 li:nth-child(3) a {background-position: -255px 0;}
+        .spr3 li:nth-child(4) a {background-position: -383px 0;}
+        .spr3 li:nth-child(5) a {background-position: -510px 0;}
+        
+    </style>
+</head>   
+<body>
+    <h1>이미지를 CSS로 처리하기</h1>
+    <h2>IR 기법</h2>
+    <p>- 읽는 브라우저(검색 엔진, 스크린리더기 등)는 텍스트로 입력</p>
+    <p>- 보이는 브라우저에서는 이미지를 CSS로</p>
+
+    <div class="logo1">구글</div>
+    <div class="logo2"><span class="blind">스타벅스</span></div>
+
+    <h2>이미지 스프라이트</h2>
+    <div class="spr1">
+        <span class="blind">파파고</span>
+    </div>
+    <div class="spr2">
+        <span class="blind">라인</span>
+    </div>
+
+    <h3>이미지 스프라이트</h3>
+    <!-- ul.spr3>li*5>a[href=#]>span.blind -->
+    <ul class="spr3">
+        <li><a href="#"><span class="blind">카카오톡</span></a></li>
+        <li><a href="#"><span class="blind">유튜브</span></a></li>
+        <li><a href="#"><span class="blind">인스타</span></a></li>
+        <li><a href="#"><span class="blind">페이스북</span></a></li>
+        <li><a href="#"><span class="blind">링크드인</span></a></li>
+    </ul>
+</body>
+</html>

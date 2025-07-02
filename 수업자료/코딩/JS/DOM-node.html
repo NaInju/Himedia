@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-node</title>
+    <style>
+        .wrap {
+            margin: 50px;padding: 30px;
+            background: #ededed;border-radius: 15px;
+        }
+        .wrap p:first-of-type {color: red;}
+        .wrap p:nth-of-type(2) {color: green;}
+
+        .h1-style {
+            color: dodgerblue; text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+
+<!-- Java Script -->
+ <script>
+    //** 노드 추가
+    //** .wrap 요소 생성 => createElement('div');
+    const wrapElm = document.createElement('div');
+    const h1Elm = document.createElement('h1');
+
+    // h1Elm => 텍스트 자손을 추가, wrapElm의 자손으로
+    // div => body 자손, h1Elm을 부모로 추가
+    wrapElm.classList.add('wrap');
+
+    // 자손 요소로 추가 => appendChild('추가할 자손요소')
+    document.body.appendChild(wrapElm);
+
+    // 텍스트 노드 생성 => createTextnode('text') 
+    const h1Text =  document.createTextNode('Nodes')
+    h1Elm.appendChild(h1Text);
+    // h1을 wrap의 자손으로
+    wrapElm.appendChild(h1Elm);
+
+
+    // p 태그 2게, 각각 '안녕하세요', '반갑습니다'
+    const pElm1 = document.createElement('p'); //요소 그자체를 생성
+    const pTxt1 = document.createTextNode('안녕하세요');
+    const pElm2 = document.createElement('p');
+    const pTxt2 = document.createTextNode('반갑습니다');
+
+    pElm1.appendChild(pTxt1)
+    wrapElm.appendChild(pElm1)
+    pElm2.appendChild(pTxt2)
+    wrapElm.appendChild(pElm2) // 자손으로 추가 까지
+
+    // h1Elm.innerHTML = 'haha'
+    console.log(wrapElm);
+    console.log(h1Elm);
+    console.log(h1Text);
+
+
+    // 요소 삭제 => remove()
+    pElm1.addEventListener('click', function () {
+        this.remove();
+    })
+
+
+    // 생성한 텍스트노드의 값(value) 변경
+    // => 
+    // *** 변수의 할당 값을 변경하는 것이 아님
+    pElm2.addEventListener('click', function (){
+        // pTxt2 = document.createTextNode('Welcome to')
+        // pTxt2 = 'Welcome to'
+        pTxt2.nodeValue = 'Welcome to JS World'
+        console.log(pTxt2); 
+    })
+
+    // 연습(복습)
+    
+    //create, appendChild 메소드 사용
+    //버튼 생성 '추가'
+    //ul 태그
+    //버튼을 클릭할 때마다 li가 생성, 생성된 li에는 저 배열의 텍스트를 하나씩 순차적으로 넣는다.
+
+    const fruits = ['Apple', 'Lemon', 'Kiwi', 'Mango']
+
+    const fbtn = document.createElement('button');
+    const btnTxt = document.createTextNode('추가/삭제')
+    const fruitList = document.createElement('ul')
+    fbtn.appendChild(btnTxt)
+    wrapElm.appendChild(fbtn)
+    wrapElm.appendChild(fruitList)
+
+    let i = 0; // 몇 번째 과일까지 추가했는지 기억
+    let isAdding = true; 
+
+    fbtn.addEventListener('click', function () {
+        if (isAdding) {
+            if (i < fruits.length) {
+                const liElm = document.createElement('li');
+                const liTxt = document.createTextNode(fruits[i]); // 현재 과일 추가
+                liElm.appendChild(liTxt);
+                fruitList.appendChild(liElm);
+                i++; // 다음 클릭엔 다음 과일이 추가되도록
+            }
+
+            if (i === fruits.length) {
+                isAdding = false; // 다 추가하면 모드 전환
+            }
+
+        } else {
+            // 삭제 모드
+            if (fruitList.lastElementChild) { // 최근 것부터 지움
+                fruitList.removeChild(fruitList.lastElementChild);
+                i--;
+            }
+
+            if (i === 0) {
+                isAdding = true; // 다 지웠으면 다시 추가 모드
+            }
+        }
+    });
+
+
+    
+
+
+
+    /*
+    fbtn.addEventListener('click', function(){
+
+        fruits.forEach( e => {
+            const liElm = document.createElement('li');
+            const liTxt = document.createTextNode(e)
+            liElm.append(liTxt)
+            fruitList.append(liElm)
+        });
+        
+    })
+    */
+
+    // 속성 추가 => setAttribute('attr', 'val')
+    // h1Elm.classList.add('h1-style') => 클래스 추가
+    h1Elm.setAttribute('class','h1-style')
+    fbtn.setAttribute('title','전역속성 : 말풍선')
+    
+
+
+
+
+
+
+ </script>
+</body>
+</html>

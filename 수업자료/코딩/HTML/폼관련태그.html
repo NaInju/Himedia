@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼(form) 관련 태그</title>
+</head>
+<body>
+    <h1>폼(양식) 태그</h1>
+    <form method="post" action="표태그.html">
+        <ul>
+            <li>한줄 텍스트 :
+                <input type="text" placeholder="이름" name="uname"> 
+                <input type="text" placeholder="별명" name="unick">
+            </li>
+            <li>비밀번호 입력 : <input type="password" required> </li>
+            <!-- value값은 안사라짐, placeholder 이용 -->
+            <li>
+                여러줄 텍스트 : 
+                <textarea name="" id="">
+                    여러 줄
+                    들여쓰기, 엔터, 공백
+                    입력한 그    대로 출력
+                    <br>
+                </textarea>
+            </li>
+            <li>
+                체크박스(다중 선택) :
+                <input type="checkbox" name="interest" value="health"> 건강
+                <input type="checkbox" name="interest"value="stock"> 주식
+                <input type="checkbox" name="interest"value="education"> 교육
+            </li>
+            <li>
+                라디오 버튼(유일 선택):
+                <input type="radio" name="gender" value="male"> 남성
+                <input type="radio" name="gender" value="female"> 여성 <br>
+                <input type="radio" name="email" value="no receive"> 수신함
+                <input type="radio" name="email" value="receive"> 수신안함 <br>
+                <input type="radio" name="pet" value="cat"> 강아지
+                <input type="radio" name="pet" value="dog"> 고양이
+                <input type="radio" name="pet" value="hamster"> 햄스터
+                <input type="radio" name="pet" value="parrot"> 앵무새
+            </li>
+            <li>
+                셀렉트 메뉴 : <select name="" id="">
+                    <option value="">SKT</option>
+                    <option value="">KT</option>
+                    <option value="">LG U+</option>
+                    <option value="" selected >통신사선택</option>
+                </select> <br>
+                <select name="" id="">
+                    <option value="">피그마</option>
+                    <option value="">일러스트레이터</option>
+                    <option value="">HTML</option>
+                    <option value="">CSS</option>
+        
+                </select>
+            </li>
+            <li>숨김데이터 : <input type="hidden" value="사용자에게는 안보이면서 전송될 데이터"></li>
+            <li>
+                전송(제출)버튼 : <input type="submit" value="확인">
+                <br>
+                <button type="submit">완료</button>
+            </li>
+            <li>
+                초기화(취소) 버튼 : <input type="reset" value="취소">
+            </li>
+            <li>
+                그냥 버튼 : <input type="button" value="주소찾기">
+            </li>
+            <li>
+                이미지버튼 : <input type="image" src="./img/search.png" width="50" alt="검색">
+            </li>
+            <li>
+                파일 업로드 버튼 : <input type="file" value="찾아보기">
+            </li>
+            <!-- html5에 추가된 type -->
+            <li>
+                숫자만 입력 : <input type="number" step="100">
+                <!-- step -> 단위 설정, 100이면 100단위로 올라감 -->
+            </li>
+            <li>이메일 : <input type="email"></li>
+            <li>url : <input type="url"></li>
+            <li>범위 : <input type="range" value="20"></li>
+            <!-- value -> 디폴트 값 설정, 입력 안하면 50으로 설정되어있음. -->
+            <li>컬러 : <input type="color"></li>
+            <li>
+                날짜 : <input type="date">
+                <input type="month">
+                <input type="week">
+            </li>
+            <li>시간 : <input type="time"></li>
+            <li></li>
+        </ul>
+    </form>
+</body>
+</html>

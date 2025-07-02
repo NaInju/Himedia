@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테두리 속성</title>
+    <style>
+        .wrap {
+            display: flex; gap: 30px 2%;
+            flex-wrap: wrap;
+            padding: 50px;
+        }
+        .wrap>div {
+            width: 23.5%; height: 250px; 
+            background: #dedede;
+            box-sizing: border-box ;
+        }
+        .b1 {
+            border-width: 10px;
+            border-color: red;
+            border-style: solid;
+        }
+        .b2 {border: 10px double red;}
+        .b3 {border: 10px dashed red;}
+        .b4 {border: 10px dotted red;}
+        .b5 {border: 10px inset red;}
+        .b6 {border: 10px outset red;}
+        .b7 {border: 10px groove red;}
+        .b8 {border: 10px ridge red;}
+        .b9 {
+            border-top: 30px dashed red;
+            border-bottom: 10px double red;
+        }
+        .wrap .b10 {
+            border-radius: 50px;
+            background: #000;
+        }
+
+        .b11 {
+            border-radius: 100px 0;
+            /* border-radius: 100px 0 100px 0;
+            border-radius: 100px 0 0 0; */
+            /* 시계 방향 */
+        }
+
+        .b12 {
+            border-radius: 30%;
+        }
+
+        .wrap .b13 {
+            background: #000;
+            width: 300px; height: 300px;
+            border-radius: 150px;
+            border-top: 10px solid red;
+        }
+
+        .wrap .b14 {
+            background: #000;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+        }
+
+        .wrap .b15 {
+            background: #000;
+            width: 500px; height: 200px;
+            border-radius: 50%;
+        }
+
+        
+
+        /* 선택자 우선순위 */
+        body #id {color: cyan;}
+        /* 101(1 + 100) */
+        #id {color: hotpink;}
+        /* 100 */
+        .class {color: orange}
+        /* 10 */
+        h1 {color: green;}
+        /* 1 */
+        * {color: red}
+        /* 0 */
+        .class {color: slateblue !important;}
+        /* 102 */
+
+    </style>
+</head>
+<body>
+    <h1 class= "h1" id="h1">선택자 우선 순위</h1>
+
+    <div class="wrap">
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+        <div class="b5"></div>
+        <div class="b6"></div>
+        <div class="b7"></div>
+        <div class="b8"></div>
+        <div class="b9"></div>
+        <div class="b10"></div>
+        <div class="b11"></div>
+        <div class="b12"></div>
+        <div class="b13"></div>
+        <div class="b14"></div>
+        <div class="b15"></div>
+    </div>
+</body>
+</html>

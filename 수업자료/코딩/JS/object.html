@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <script>
+        // object(객체) => {}
+        // key : value => 키 : 값 구성
+        // 속성 : 속성값
+        // 색 : 노랑, 형태 : 길쭉, 맛: 달콤 => 바나나
+
+        // 변수 : let a = data;
+        // 배열 : const arr = [data1, data2, ...]
+        // 객체 : const obj = {prop : val, prop : val, ...}
+
+        const person1 = {
+            'user-name' : 'John Doe',
+            userAge : 32,
+            job : 'Artist',
+            location : 'Seoul',
+            sayHello : () => {
+                return 'hello'
+            }
+        }
+        console.log('user-name');
+        console.log(sayHello);
+
+        const person2 = {
+            'user-name' : 'Mary Doe',
+            userAge : 26,
+            job : 'Designer',
+            location : 'New-York'
+        }
+
+        console.log(`person1의 이름? ${person1['user-name']}`);
+        console.log(`person2의 이름? ${person2['user-name']}`);
+        console.log(`person1의 직업? ${person1.job}`);
+        console.log(`person2의 거주지? ${person2['location']}`);
+
+        // 객체['속성'] => css 속성 등 문자열로 사용하느 ㄴ경우
+        // 키 이름은 카멜케이스 표기법을 이용할 것
+
+        const person3 = {};
+        console.log(person3);
+
+        person3.userName = 'Ann';
+        person3.age = 36;
+        person3['location'] = 'Busan';
+        person3.job = 'Programmer';
+
+        console.log(person3.userName, person3.age, person3.job);
+
+        //Ann의 거주지를 파리로 변경
+        person3.location = 'Paris';
+        console.log(person3.location);
+
+        const fruits = []
+        //fruits[0] = 'Apple'
+        //console.log(fruits);
+        fruits[0] = {
+            name: 'Apple',
+            price: 10000
+        }
+        console.log(fruits);
+        fruits[1] = {
+            name : 'Orange',
+            price : 7000
+        }
+        console.log(fruits);
+        console.log(`2번째 과일명: ${fruits[1].name}, 가격: ${fruits[1].price}`);
+
+        //movies 변수를 만들고 영화 정보를 작성
+        //작품명(title), 장르(genre), 개봉일(release), 감독명(director)
+        //3개 정도 추가
+
+        //console.log(`${} 감독의 영화 ${},${} 작`);
+        //console.log(`${} 감독의 영화 ${},${} 작`);
+
+
+        const movies = [];
+        movies[0] = {
+            title: '하이파이브',
+            genre: '판타지',
+            release: '2025.05.30',
+            director: '강형철'
+        }
+        movies[1] = {
+            title: '드래곤길들이기',
+            genre: '액션',
+            release: '2025년',
+            director: '딘 데블로이스'
+        }
+        movies[2] = {
+            title: '신명',
+            genre: '드라마',
+            release: '2025년',
+            director: '김남균'
+        }
+        
+        console.log(`${movies[0].director} 감독의 영화 ${movies[0].title},${movies[0].release}작`);
+        console.log(`${movies[1].director} 감독의 영화 ${movies[1].title},${movies[1].release}작`);
+        console.log(`${movies[2].director} 감독의 영화 ${movies[2].title},${movies[2].release}작`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

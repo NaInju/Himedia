@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 객체</title>
+    <script>
+        //날짜와 시간을 다루는 내장 객체
+        const now = new Date();
+
+        console.log(now);
+
+        let y, mon, d, w, h, m, s;
+
+        y = now.getFullYear(); //년도 추출, 네자리 표기
+        // getYear() => 2000년대 이전 사용. 두자리 표기
+        mon = now.getMonth(); //월(달) 추출
+        d = now.getDate(); //일(일자) 추출
+        w = now.getDay();
+        h = now.getHours();
+        m = now.getMinutes();
+        s = now.getSeconds();
+
+        console.log(y); //2025
+        console.log(mon); //5 => (월 인덱스, 0부터 시작)
+        console.log(d); //10
+        console.log(w); //2 => 요일 인덱스 (일요일, 0부터)
+        console.log(h); //17 => 24시간 표기
+        console.log(m); //54
+        console.log(s); //
+
+        const weekName = ['일','월','화','수','목','금','토']
+        const monEngName = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+        console.log(`이번 달은 ${mon + 1}월 입니다.`);
+        console.log(`오늘은 ${weekName[w]}요일입니다.`);
+        console.log(`이번 달 영어이름은 ${monEngName[mon]}`);
+
+        // 0~11 => 오전, 12 ~ 23 => 오후
+        let ampm = ( h > 12 ) ? '오후' : '오전' ;
+        let hour12 = ( h > 12 ) ? ( h - 12 ) : h;
+        console.log(`현재 시간 : ${ampm} ${hour12}시`);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

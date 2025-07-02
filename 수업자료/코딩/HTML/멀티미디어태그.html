@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멀티미디어 태그</title>
+</head>
+<body>
+    <h2>비디오 태그</h2>
+    <!-- <img src="" alt=""> 이미지는 종료 태그가 필요없음. -->
+    <video src="./media/main.mp4" height="500px" autoplay muted controls></video>
+    <!-- 
+        크롬에서는 autoplay 단독으로는 작동하지 않고, muted와 같이 쓰면 동작함.
+        큰소리로 인한 불쾌감 방지를 위함.
+     -->
+
+    <!--
+        초창기 브라우저들은 저마다 읽을 수 있는 영상/사운드 파일 포맷이 달랐음
+        현재는 모든 브라우저가 mp4 파일을 읽을 수 있음
+        포맷이 서로 다른 파일의 경로를 모두 올려야 했고
+        따라서 source 태그를 여러개 포함 하기 위해 종료 태그가 필요함.
+     -->
+    <video width="500" autoplay muted loop>
+        <source src="./media/movie.mp4">
+        <source src="./media/movie.ogg">
+        <source src="./media/movie.webM">
+    </video>
+
+    <audio src="./media/audio.mp3" autoplay controls></audio>
+    <!-- 
+        autoplay는 어트리뷰트이지만 벨류값을 가지지 않음. 
+        <audio src="./media/audio.mp3" autoplay="autoplay"></audio>
+        => xhtml 방식, 어트리뷰트는 반드시 벨류값을 가져야한다는 규칙으로 인해 벨류값이 없는 오토플레이는 어트리뷰트 이름을 한번 더 써줌.
+     -->
+</body>
+</html>

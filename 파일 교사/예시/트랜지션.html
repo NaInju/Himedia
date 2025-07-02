@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>트랜지션</title>
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+   <style>
+      * {list-style: none;margin: 0;padding: 0;font: inherit;}
+      body {
+         margin-bottom: 500px;
+      }
+      /* p {margin: 0;padding: 0;} */
+      section {
+         display: flex;flex-direction: column;
+         justify-content: center;align-items: center;
+         height: 100vh;
+      }
+      a {text-decoration: none;color: inherit;}
+      button {
+         line-height: 1;background: none;border: none;
+      }
+
+      header {
+         display: flex;justify-content: space-between;
+         align-items: center;
+         position: fixed;left: 0;right: 0;top: 0;
+         height: 100px;padding: 0 100px;
+         background: #ededed;
+      }
+      header h1 {
+         width: 140px;height: 22px;background: gold;
+      }
+      header #gnb {text-align: center;}
+      header #gnb .dep1 {display: flex;}
+      header #gnb .dep1>li {position: relative;}
+      header #gnb .dep1>li>a {
+         font-size: 18px;font-weight: bold;
+         display: flex;width: 160px;height: 100px;
+         align-items: center;justify-content: center;
+         transition: width 0.5s;
+      }
+      header #gnb .dep1>li:hover>a {width: 220px;}
+
+      header #gnb .dep2 {
+         /* display: none; */
+         position: absolute;top: 100px;
+         width: 100%;height: 0;overflow: hidden;
+         background: #dedede;transition: all 0.5s;
+      }
+      header #gnb .dep1>li:hover .dep2 {height: 250px;padding-top: 50px;}
+      header #gnb .dep2>li {margin-bottom: 20px;}
+      header .util {
+         border: 1px solid red;
+      }
+      .main_visual {height: 100vh;}
+      .main_visual img {
+         width: 100%;height: 100%;object-fit: cover;
+      }
+      .ex1 {}
+      .ex1 ul {
+         display: flex;flex-direction: row;gap: 30px;
+         align-items: flex-end;
+         width: 80%;height: 350px;
+      }      
+      .ex1 li {
+         /* width: calc(100% / 5 - (30px * 4) / 5); */
+         height: 100px;flex-basis: 25%;
+         border-radius: 20px;overflow: hidden;
+         transition-duration: 0.5s;
+         transition-property: height;
+      }
+      .ex1 li:hover {
+         height: 300px;
+      }
+      .ex1 img {
+         width: 100%;height: 100%;object-fit: cover;
+      }
+
+      .ex2 {
+         padding: 0 160px;
+         background: #ededed;
+      }      
+      .ex2 ul {display: flex;flex-direction: row;}
+      .ex2 li {
+         padding: 20px 30px;border-radius: 20px;
+         transition: all .5s;
+      }      
+      .ex2 li:hover {
+         background: #0A31A8;color: #FFF;
+      }
+      .ex2 img {
+         width: 100%;height: 100%;object-fit: cover;
+      }
+      .ex2 .img {
+         aspect-ratio: 3 / 2;border-radius: 20px;
+         overflow: hidden;margin-bottom: 20px;
+      }
+      .ex2 .img img {
+         transition: all .5s;         
+      }
+      .ex2 li:hover .img img {
+         transform: scale(1.2);
+      }
+      .ex2 .txt {
+         display: flex;flex-direction: column;gap: 16px;
+      }
+      .ex2 .txt span {
+         display: flex;gap: 10px;align-items: center;
+         font-size: 12px;font-weight: bold;
+         text-transform: uppercase;
+      }
+      .ex2 .txt span::before {
+         content: "";display: block; 
+         width: 10px;height: 10px;
+         border-radius: 50%;
+         background: navy;
+      }
+      .ex2 .txt strong {
+         font-size: 22px;font-weight: bold;
+      }
+      .ex2 .txt i {
+         align-self: flex-end;/* 자손요소의 교차축 정렬 align-items(부모선언)와 다른 위치*/
+         padding: 10px;border-radius: 50%;
+         font-size: 20px;background: #dedede;
+         color: #333;
+      }
+      .ex3 {}
+      .ex3 ul {
+         display: flex;flex-direction: row;gap: 30px;
+         width: 80%;height: 350px;
+      }      
+      .ex3 li {
+         height: 500px;flex-grow: 1;
+         border-radius: 20px;overflow: hidden;
+         transition-duration: 0.5s;
+         transition-property: all;
+         background: no-repeat center / cover;
+         border: 1px solid #000;
+      }
+      .ex3 li:hover {flex-grow: 3;}
+      /* .ex3 img {
+         width: 100%;height: 100%;object-fit: cover;
+      } */
+      .ex3 li:nth-child(1) {background-image: url(img/fox.jpg)}
+      .ex3 li:nth-child(2) {background-image: url(img/puppy.jpg)}
+      .ex3 li:nth-child(3) {background-image: url(img/rabbit.jpg)}
+      .ex3 li:nth-child(4) {background-image: url(img/ram.JPG)}
+      .ex3 li:nth-child(5) {background-image: url(img/zebra.jpg)}
+      
+   </style>
+</head>
+<body>
+   <header>
+      <h1><!--IR 기법--></h1>
+      <nav id="gnb">
+         <ul class="dep1">
+            <li><a href="#">그룹소개</a>
+               <ul class="dep2">
+                  <li><a href="#">JB금융그룹소개</a></li>
+                  <li><a href="#">CEO인사말</a></li>
+                  <li><a href="#">그룹비전</a></li>
+                  <li><a href="#">그룹비전</a></li>
+                  <li><a href="#">그룹비전</a></li>
+               </ul>
+            </li>
+            <li><a href="#">기업지배구조</a>
+               <ul class="dep2">
+                  <li><a href="#">이사회</a></li>
+                  <li><a href="#">조직도</a></li>
+                  <li><a href="#">주주총회</a></li>
+               </ul>
+            </li>
+            <li><a href="#">투자정보</a>
+               <ul class="dep2">
+                  <li><a href="#">Investor Relations</a></li>
+                  <li><a href="#">기업가치 제고 계획</a></li>
+                  <li><a href="#">공시정보</a></li>
+               </ul>
+            </li>
+            <li><a href="#">PR센터</a>
+               <ul class="dep2">
+                  <li><a href="#">보도자료</a></li>
+                  <li><a href="#">홍보영상</a></li>
+                  <li><a href="#">공지사항</a></li>
+               </ul>
+            </li>
+            <li><a href="#">ESG</a>
+               <ul class="dep2">
+                  <li><a href="#">ESG전략체계</a></li>
+                  <li><a href="#">ESG 지배구조</a></li>
+                  <li><a href="#">ESG 정책 및 가이드라인</a></li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+      <div class="util">
+         <button class="btn_search"><i class="ri-search-line"></i></button>
+         <button class="btn_allmenu"><i class="ri-menu-3-line"></i></button>
+      </div>
+   </header>
+   <div class="main_visual">
+      <img src="img/visual1.jpg" alt="">
+   </div>
+   <section class="ex1">
+      <ul>
+         <li><img src="img/img1.jpg" alt=""></li>
+         <li><img src="img/img2.jpg" alt=""></li>
+         <li><img src="img/img3.jpg" alt=""></li>
+         <li><img src="img/img4.jpg" alt=""></li>
+         <li><img src="img/img5.jpg" alt=""></li>
+      </ul>
+   </section>
+   <section class="ex2">
+      <ul>
+         <li>
+            <div class="img">
+               <img src="img/img5.jpg" alt="">
+            </div>
+            <div class="txt">
+               <span>internal</span>
+               <strong>광주은행</strong>
+               <p>나와 지역을 잘 아는 <br> 우리 모두의 은행</p>
+               <i class="ri-arrow-right-line"></i>
+            </div>
+         </li>
+         <li>
+            <div class="img">
+               <img src="img/img3.jpg" alt="">
+            </div>
+            <div class="txt">
+               <span>internal</span>
+               <strong>광주은행</strong>
+               <p>나와 지역을 잘 아는 <br> 우리 모두의 은행</p>
+               <i class="ri-arrow-right-line"></i>
+            </div>
+         </li>
+         <li>
+            <div class="img">
+               <img src="img/img2.jpg" alt="">
+            </div>
+            <div class="txt">
+               <span>internal</span>
+               <strong>광주은행</strong>
+               <p>나와 지역을 잘 아는 <br> 우리 모두의 은행</p>
+               <i class="ri-arrow-right-line"></i>
+            </div>
+         </li>
+         <li>
+            <div class="img">
+               <img src="img/img4.jpg" alt="">
+            </div>
+            <div class="txt">
+               <span>internal</span>
+               <strong>광주은행</strong>
+               <p>나와 지역을 잘 아는 <br> 우리 모두의 은행</p>
+               <i class="ri-arrow-right-line"></i>
+            </div>
+         </li>
+      </ul>
+   </section>
+   <section class="ex3">
+      <ul>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+      </ul>
+   </section>
+</body>
+</html>

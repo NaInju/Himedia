@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    
+    <script src="./script.js" defer></script>
+    <script>
+        document.write('<h2>I am h2</h2>')
+        // window.alert('hello')
+        console.log(5 + 3)
+
+        // 한 줄 주석
+        console.log('5 + 3') // 문자열, String
+
+        /*
+            여러 줄 주석
+            주링 바뀌는 코드를 한번에 주석
+        */ 
+
+    </script>
+</head>
+<body>
+    <h1 id="h1">Java Script</h1>
+
+   
+    <p>
+        ※ 자바와 자바스크립트는 전혀 다른 언어,
+        자바스크립트를 자바로 줄여 부르지 말 것 !!!
+    </p>
+
+    <h2>웹문서에서 자바스크립트를 사용하는 방법</h2>
+    <h3>별도의 js 파일을 연결</h3>
+    <ul>
+        <li>script 태그에 src 속서에 파일 경로</li>
+        <li>script 태그 내부에는 아무것도 작성하지 말 것</li>
+    </ul>
+    <h3>현재 문서에서만 사용</h3>
+    <ul>
+        <li>script 태그를 사용하여 태그 내부에 JS 문법 작성</li>
+        <li>src 속성은 사용하지 말 것</li>
+    </ul>
+    <!-- 
+        태그에 직접 사용하는 경우가 간혹 있음.
+    -->
+
+    <h2>사용(작성) 위치에 대한 주의 사항</h2>
+    <ul>
+        <li>일반적으로 head 태그 안에 작성</li>
+        <li>html 태그 요소를 제어하는 경우 head 안의 코드는 동작하지 않을 수 있음.
+                => 브라우저는 head의 내용으 모두 로드할 때 까지 body 요소를 렌더링 하지 않기 때문
+                <ul>
+                    <li>html 요소가 렌더링이 완료된 body 종료 태그 윗 줄에 작성</li>
+                    <li>요소가 모두 로드된 후 스크립트를 실행하라는 함수 사용 => JS</li>
+                    <li>*** src로 연결된 파일은 defer 속성을 이용</li>
+                </ul>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <h2>자바스크립트 기초 문법</h2>
+    <ul>
+        <li>객체.메소드() => 자바스크립트 함수, 행동</li>
+        <li>객체.속성(=프롬퍼티) => 객체의 속성</li>
+    </ul>
+
+    <h2>자바스크립트 출력</h2>
+    <ul>
+        <li>경고창: window.alert('hello')</li>
+        <li>개발자 도구 콘솔 : conslole.logo(3+ 8)</li>
+        <li>html 요소에 출력 : document.getElemntByld('id-name').innerHTML = 'hello'</li>
+        <li></li>
+    </ul>
+
+    
+
+</body>
+</html>

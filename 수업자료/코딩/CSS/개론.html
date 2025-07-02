@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 개론</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        h1 {
+            color:orange;
+        }
+        h2 {
+            color: slateblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>CSS 개론</h1>
+    <h2>CSS란</h2>
+    <p>- CSS(Cascading Style Sheet)는 웹 문서의 스타일 적용을 위한 언어</p>
+    <p>- 웹문서의 스타일 : 글꼴, 컬러, 크기, 레이아웃 등 </p>
+    <p>- 특히, 레이아웃 디자인(박스 모델링 등)에 반드시 필요</p>
+    <p>- 스타일링 대상이 필요, 그 대상은 태그 요소가 된다.(html)</p>
+    <p>- 스타일 대상을 지칭하는 선택자(selector) 문법이 매우 중요</p>
+    <p>- 선언 순서가 중요, 나중에 작성한 것이 적용됨.(선택자가 동일할 때)</p>
+    <p>- </p>
+
+    <h2>CSS 적용 방법</h2>
+    <h3>Internal(Embed) 방식</h3>
+    <ul>
+        <li>스타일이 필요한 html 문서 내부에 선언하는 방식</li>
+        <li>선언된 문서에만 스타일이 적용</li>
+        <li>style 태그 안에 CSS 문법을 작성</li>
+    </ul>
+    
+    <h3>External(Linked) 방식</h3>
+    <ul>
+        <li>스타일 규칙을 별도의 css 문서로 작성하여 html 문서에 링크(연결)하는 방식</li>
+        <li>여러 문서에 동일한 스타일을 적용, 유지보수 편리</li>
+        <li>link를 이용해서 css파일을 연결</li>
+    </ul>
+
+    <h3>Inline 방식</h3>
+    <ul>
+        <li>태그에 직접 사용</li>
+        <li style=" color: red;">style 속성을 이용, 속성값에 css 문법 작성</li>
+        <li>테스트 용도로 사용</li>
+        <li>자바스크립트의 동적인 스타일, 리액트 등에는 인라인 방식이 더 적합한 경우가 있다.</li>
+    </ul>
+
+    <h2>기초 문법</h2>
+    <p>
+        선택자 {속성명: 속성값;속성명: 속성값;} <br>
+        selector {property: value;} <br>
+        => h1 {color: red;}
+    </p>
+
+</body>
+</html>

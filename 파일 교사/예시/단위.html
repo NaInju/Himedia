@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위</title>
+    <style>
+        body {
+            font-size: 50px;margin-bottom: 500px;
+        }
+        h1 {
+            font-size: 2em; /* 변하는 가변값*/
+        }
+        h2 {
+            font-size: 32px; /*변하지 않는 고정값*/
+        }
+        .unit1 {
+            width: 800px;
+            background: gold;
+            font-size: 200%; /*부모 16px의 2배 32px*/
+        }
+        .unit1>strong {
+            display: block;width: 500px;
+            border: 2px solid #000;
+        }
+        .unit2 {
+            width: 80%;
+            background: burlywood;
+        }
+        .unit2>strong {
+            display: block;width: 50%;
+            border: 2px solid #000;
+        }
+        .unit3 {
+            background: salmon;
+            font-size: 2em;/* 16x2 = 32*/
+        }
+        .unit3>strong {
+            display: block;
+            width: 100em; /*부모의 글자크기 기준 16x100 */
+            border: 2px solid #000;
+            font-size: 2em; /* 32x2 = 64  */
+        }
+        .unit3>p {font-size: 1em;/*32*/}
+
+        .unit4 {
+            width: 80vw;
+            background: pink;
+        }
+        .unit4>strong {
+            display: block;width: 50vw;
+            border: 2px solid #000;
+        }
+        .unit5 {
+            background: lightblue;
+            font-size: 2em; /* 50(body)x2 => 100*/
+        }
+        .unit5>strong {
+            font-size: 2em; /* 32x2 = 64 */
+        }
+        .unit5>p {
+            font-size: 2rem; /* 16(root)x2 => 32  */
+        }
+        .color {font-size: 20px;}
+        .color>div {
+            margin: 50px;height: 150px;width: 800px;
+        }
+        .c1 {background: tomato;}
+        .c2 {background: #ff0;}
+        .c3 {background: rgb(255,0,255);}
+        .c4 {
+            background-image: url(img/char.jpeg);
+            background-size: cover;
+            font-size: 30px; font-weight: bold;
+            border: 1px solid #000;
+        }
+        .c4>div {
+            background: rgba(0,0,0,0.5);
+            height: 100%;color: #FFF;
+        }
+        .c5 {
+            background-image: url(img/char.jpeg);
+            background-size: cover;
+            font-size: 30px; font-weight: bold;
+            border: 1px solid #000;
+        }
+        .c5>div {
+            background: rgba(0,0,0,1);
+            height: 100%;color: #FFF;
+            opacity: .5;
+        }
+    </style>
+</head>
+<body>
+    <h1>단위</h1>
+    <h2>크기 단위</h2>
+    <div class="unit1">
+        <strong>px 단위</strong>
+        <p>- 브라우저(html, root) 기본 설정 : 글자 크기 16px</p>
+        <p>- 변하지 않는 고정값</p>
+        <p>- 최소값 1px</p>
+    </div>
+    <div class="unit2">
+        <strong>% 단위</strong>
+        <p>- 백분율, 가변값</p>
+        <p>- 부모(!!!!) 요소 면적 크기 기준 특히 width(가로)</p>
+        <p>- 보통 면적 크기에 사용, 글자크기에 사용은 가능</p>
+        <p>- 사용한 속성(width, font-size)과 같은 부모 속성 값</p>
+    </div>
+    <div class="unit3">
+        <strong>em 단위</strong>
+        <p>- 배수 단위, 가변값</p>
+        <p>- 부모 요소의 글자 크기 기준</p>
+        <p>- 글자 크기에 사용</p>
+    </div>
+    <div class="unit4">
+        <strong>vw / vh 단위</strong>
+        <p>- viewport(화면) 기준, 가변값</p>
+        <p>- 화면크기 == 100</p>
+        <p>- 반응형에서 사용, 화면을 기준으로 할 때 사용</p>
+    </div>
+    <div class="unit5">
+        <strong>rem 단위</strong>
+        <p>- root의 글자 크기를 기준</p>
+        <p>- 반응형에서 사용, 글자 크기와 면적에도 사용</p>
+    </div>
+
+    <div class="color">
+        <h2>컬러 단위</h2>
+        <div class="c1">관용색명 : 브라우저, 모니터에 따라 달라보일 수 있음, 실무에서 사용하지 않음</div>
+        <div class="c2">HEX 코드값 : #F00</div>
+        <div class="c3">rgb() 함수값 : rgb(255,0,0)</div>
+        <div class="c4">
+            <div>rgba() 함수값 : rgba(255,0,0,0.5)</div>
+        </div>
+        <div class="c5">
+            <div>rgba() 함수값 : rgba(255,0,0,0.5)</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션 속성</title>
+    <style>
+        body {
+            background: url(img/grid.gif);
+            margin-bottom: 500px;
+        }
+        .box1 {
+            width: 400px; 
+            height: 300px;
+            background: red; 
+            position: absolute; left: 100px; top: 100px;
+        }
+        .box2 {
+            width: 400px; 
+            height: 300px;
+            background: dodgerblue; 
+            position: relative; left: 100px; top: 100px;
+        }
+        .box3 {
+            width: 400px; 
+            height: 300px;
+            background: salmon; 
+            position: relative; left: 100px; top: 100px;
+        }
+        .gotop {
+            display: flex;justify-content: center;align-items: center;
+            position: fixed;right: 50px;bottom: 50px;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #000; color: #fff;
+        }
+        .parent {
+            width: 1000px;padding: 100px; 
+            margin: 150px auto;
+            height: 600px;background: rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .abs1 {
+            left: 100px; top: 100px;
+            width: 200px;height: 200px;
+            background: yellow;
+            position: absolute;
+        }
+        .abs2 {
+            right: 100px; bottom: 100px;
+            width: 200px;height: 200px;
+            background: green;
+            position: absolute;
+        }
+        .rel {
+            left: 100px; top: 100px;
+            width: 200px;height: 200px;
+            background: blue;
+            position: relative;
+        }
+
+        /* .sticky {
+            width: 500px; height: 300px; background: slateblue;
+            position: sticky; top: 0;
+        } */
+
+        .sticky {
+            display: flex; 
+            border: 3px solid red;
+        }
+        .sticky .left {
+            position: sticky; top: 0;
+            background: pink;
+            width: 50%; height: 100vh;
+        }
+        .sticky .right {
+            background: url(img/otter.jpg);
+            width: 50%; height: 2000px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="gotop">Top</div>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="parent">
+        <div class="abs1"></div>
+        <div class="abs2"></div>
+        <div class="rel"></div>
+    </div>
+    <div class="sticky">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    
+</body>
+</html>

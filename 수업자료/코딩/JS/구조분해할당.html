@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조분해할당</title>
+    <script>
+        // 배열과 객체의 값을 쉽게 변수로 저장
+
+        const arr1 = [1, 2, 3, 4];
+        let a, b, c, d;
+
+
+        let [a1, a2, a3, a4] = arr1;
+
+        console.log(a3); //3
+
+
+
+        let fruits = ['apple', 'grape', 'cherry', 'lemon', 'kiwi']
+
+        let farr = [f1, f2, f3, f4, f5] = fruits;
+
+        console.log(f2); //fruits 배열의 2번째 데이터를 변수에 저장
+
+
+        let num1 =20, num2 =2;
+
+        const [ calcAdd, calcSub, calcMul, calcDiv] = calc(20, 2)
+
+        console.group(`${num1}, ${num2} 의 사칙연산`);
+            console.log(`덧셈 : ${calcAdd}}`);
+            console.log(`뺄셈 : ${calcSub}`);
+            console.log(`곱셈 : ${calcMul}`);
+            console.log(`나눗셈 : ${calcDiv}`); 
+        console.groupEnd();
+
+        function calc(n1, n2) {
+            let add = n1 + n2;
+            let sub = n1 - n2;
+            let mul = n1 * n2;
+            let div = n1 / n2;
+            return [add, sub, mul, div]
+        }
+
+        let korScore = 80, engScore = 75, mathScore = 60;
+
+        let [sum, avg, max, min] = scoreSheet(korScore, engScore, mathScore)
+
+        console.group('점수');
+            console.log(`합계 : ${sum}`);
+            console.log(`평균 : ${avg}`);
+            console.log(`최고점수 : ${max}`);
+            console.log(`최저점수 : ${min}`);
+        console.groupEnd();
+
+        function scoreSheet(k, e, m) {
+            let sum = (k + e + m);
+            let avg = sum/3;
+            let max = Math.max(k,e,m);
+            let min = Math.min(k,e,m);
+            return [sum, avg, max, min]
+        }
+
+        const [fn1,,,fn2] = fruits;
+        console.group(`furits : ${fruits}`);
+            console.log(`첫번째 : ${fn1}`);
+            console.log(`네번째 : ${fn2}`);
+        console.groupEnd();
+
+        const animals = ['강아지','고양이','앵무새','고슴도치','햄스터','라쿤','이구아나']
+        const [pet1, pet2, ...etc] = animals
+
+        console.group('반려 동물 순위');
+            console.log(`1위 : ${pet1}`); //강아지
+            console.log(`2위 : ${pet2}`); //고양이
+            console.log(`그 외 : ${etc}`); //앵무새, 고슴도치 등등
+        console.groupEnd();
+
+        let person = []; // 일반적으로 배열은 const, 그러나 재할당 이슈로
+        let [fname, lname] = person; //const를 주면 재할당이 됨. 왜?, 그리고 let을 안줄경우는?
+
+        fname = '길동';
+        lname = '홍';
+
+        console.log(fname, lname); //길동 홍
+
+        [fname, lname] = [lname, fname]; //swapping => 둘이 위치가 아니라 서로 값을 바꾸는 것
+        console.log(fname); //홍
+
+        const [x, y = 50, z = 10, x1] = [100, 200,, 30]
+        console.log(x);
+        console.log(y);
+        console.log(z);
+        console.log(x1);
+
+
+        ///*** 객체(Object)
+        const member = {
+            name: 'Michael',
+            job: 'Developer',
+            age : 25
+        }
+
+        // let mname = member.name;
+        // let mjob = member.job;
+        // let mage = member.age;
+        // console.group();
+        //     console.log(member.name,member.job,member.age);
+        //     console.log(name);
+        //     console.log(job);
+        //     console.log(age);
+        // console.groupEnd();
+
+        // 객체의 키(프로퍼티)를 변수명
+        let {name, job, age} = member;
+        console.group();
+            console.log(name,job,age);
+        console.groupEnd();
+
+        console.log('-------------');
+        const scores = {
+            kor: 86,
+            eng: 75,
+            math: 60
+        }
+        console.log(`수학점수 : ${scores.math}`);
+
+        let {kor, eng, math} = scores;
+        console.log(`수학점수 : ${math}`);
+
+        let {kor : korS, eng : engS, math : mathS} = scores
+        console.log(`국어점수 : ${korS}`);
+
+        console.log('--------------');
+        const student = {
+            name: {
+                fn: 'John', ln: 'Doe'
+            } ,
+            city: 'New York' ,
+            birthDate: {year: 1999, month: 5, date: 29}
+        }
+
+        const nowYear = new Date().getFullYear;
+
+        let {
+            name: {fn : firstName, ln: lastName},
+            birthDate: {
+                year: birthYear, month: birthMonth, date:birthDate
+            },
+            //age : studentAge
+            //studentAge = nowYear - birthYear
+            studentAge = nowYear - student.birthDate.year
+        } = student
+
+
+        //student = new Date().getFullYear()- birthYear; 
+        //studentAge = new Date().hetFullyear() - birthYear;
+                                                                                        
+
+        //let {};
+        console.log(`학생의 first name: ${firstName} ${lastName}`);
+        console.log(`생일: ${birthMonth}월 ${birthDate}일`);
+        console.log(`${student}세`);
+
+
+        
+        let discountRate = 0.2;
+        const product = {
+            name: '마우스',
+            price: {fixed: 12000},
+            discount: discountRate
+        }
+
+        let {
+            name: pName,
+            price: {fixed: fPrice},
+            discount,
+            discountRes = fPrice - (fPrice * discount)
+        } = product
+
+        console.group();
+        console.log(`제품명 : ${pName}`);
+        console.log(`정가: ${fPrice}`);
+        console.log(`10% 할인: ${discount}`);   
+        console.log(`${discountRate + 100}%할인 : ${discountRes}`);     
+        console.groupEnd();
+
+        const friends = [{
+            name: 'Alice',
+            age: 26,
+            job: 'Developer'
+        }, {
+            name: 'Tom',
+            age: 24,
+            job: 'Deigner'
+        }, {
+            name: 'Bob',
+            age: 42,
+            job: 'PM'
+        }]
+
+        const [
+            {name: fname1, age: fage1, job: fjob1},
+            {name: fname2, age: fage2, job: fjob2},
+            {name: fname3, age: fage3, job: fjob3}
+
+        ] = friends
+
+        console.group();
+        console.log(`1번참가자의 이름: ${fname1}`);
+        console.log(`1번참가자의 나이: ${fage1}`);
+        console.log(`2번참가자의 이름: ${fname2}`);
+        console.log(`2번참가자의 나이: ${fage2}`);
+        console.log(`3번참가자의 이름: ${fname3}`);
+        console.log(`3번참가자의 나이: ${fage3}`);
+        console.groupEnd();
+
+        const customers = [
+            {
+                name: '라면', price:'5000원', paymentMethod: '현금'
+            },{
+                name: '김밥', price:'3500원', paymentMethod: '포인트'
+            },{
+                name: '냉면', price:'8000원', paymentMethod: '카드'
+            }
+        ]
+
+        const [customer1, customer2, customer3] = customers
+
+        function payment({name:cName, price, paymentMethod:pay}) {
+
+
+            return `구매상품: ${cName}, 가격: ${price}, 결제방법: ${pay}`
+        }
+        console.group();
+        console.log(`구매자 A => ${payment(customer1)}`);
+        console.log(`구매자 B => ${payment(customer2)}`);
+        console.log(`구매자 C => ${payment(customer3)}`);
+        // 구매상품: 라면, 가격: 5000원, 결제방법: 현금
+        console.groupEnd();
+
+        const students = [
+            {
+                name: '아이유',
+                scores: {
+                    music: 95, art: 84, physical: 76
+                }
+            }, {
+                name: '정경호',
+                scores: {
+                    music: 91, art: 80, physical: 84
+                }
+            },{
+                name: '설인아',
+                scores: {
+                    music: 94, art: 88, physical: 86
+                }
+            }
+        ]
+
+        const [ st1, st2, st3 ] = students
+
+        function scoreReport({name: sname, scores: {music, art, physical}}) {
+            let sum = music + art + physical;
+            let avg = Math.round(sum/3)
+            
+            return `이름: ${sname}, 음악점수: ${music}, 미술점수: ${art}, 체육점수: ${physical}, 평균: ${avg}`
+        }
+
+        console.group();
+        console.log(`학생1: ${scoreReport(st1)}`);
+        console.log(`학생2: ${scoreReport(st2)}`);
+        console.log(`학생3: ${scoreReport(st3)}`);
+        //이름: 아이유, 음악점수: 88, 미술점수: 88, 체육점수: 88, 평균: 88 => 평균은 정수 형태로
+        console.groupEnd();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

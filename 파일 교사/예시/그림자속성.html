@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>그림자속성</title>
+   <style>
+      body {
+         background: 
+         url(img/dbbg2.jpg) no-repeat right bottom / 60% auto fixed, 
+         url(img/w3.png) no-repeat left top;
+      }
+      /* x-offset y-offset blur spread color */
+      p {
+         width: 500px;height: 300px;margin: 100px;
+         background: silver;
+      }
+      .shad1 {
+         box-shadow: 10px 10px 10px red;
+      }
+      .shad2 {
+         background: pink;
+         box-shadow: -10px -10px 20px rgba(0,0,0,0.5);
+      }
+      .shad3 {
+         background: yellowgreen;
+         box-shadow: 0 0 20px 0px rgba(0,0,0,0.5);
+      }
+      .shad4, .shad5, .shad6 {
+         display: flex;justify-content: center;
+         align-items: center;font-size: 45px;
+         font-family: "Arial Black";
+         color: #333; background: #FFF;
+         border: 1px solid #999;
+      }
+      .shad4 {
+         text-shadow: 2px 2px 3px red;
+         box-shadow: 
+         1px 0 0 red,
+         0 1px 0 orange,
+         -1px 0 0 teal,
+         0 -1px 0 dodgerblue
+         ;
+      }
+      .shad5 {
+         text-shadow: 3px 3px 0 tomato;
+         color: #999
+      }
+      .shad6 {
+         color: #999;
+         text-shadow: 3px 3px 0 red, -3px -3px 0 yellowgreen;
+      }
+   </style>
+</head>
+<body>
+   <p class="shad1">Shadow Effect</p>
+   <p class="shad2">Shadow Effect</p>
+   <p class="shad3">Shadow Effect</p>
+   <p class="shad4">Shadow Effect</p>
+   <p class="shad5">Shadow Effect</p>
+   <p class="shad6">Shadow Effect</p>   
+</body>
+</html>
